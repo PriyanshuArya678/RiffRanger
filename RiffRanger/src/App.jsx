@@ -7,11 +7,14 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
+
     <div >
-      {/* <Navbar/>
-      <Body/> */}
-      {/* <ChordLibrary/> */}
-      <SoundGuessingGame/>
+      <Navbar/>
+
+      <Body/>
+      
+      {/*<ChordLibrary/>*/ }
+      {/* <SoundGuessingGame/> */}
     </div>
   )
 }

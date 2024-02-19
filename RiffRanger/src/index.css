@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body{
   font-family: "Protest Riot", sans-serif;
   font-weight: 400;
@@ -15,6 +16,7 @@ body{
 }
 
 /* :root {b
+>>>>>>> e62295c84941b060ea23b78cf022cba45d71b9af
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
