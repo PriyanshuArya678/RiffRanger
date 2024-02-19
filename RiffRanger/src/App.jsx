@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {Navbar} from './Navbar';
 import Body from './Body';
 import ChordLibrary from './ChordLibrary';
-import SoundGuessingGame from './SoundGuessingGame';
+import SoundGuessingGame from './ChordGuessingGame/SoundGuessingGame';
 function App() {
   const [count, setCount] = useState(0)
 

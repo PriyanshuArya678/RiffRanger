@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import GuitarChordSound from './GuitarChordSound';
 const chords = [
   { name: 'A', type: 'Major' },
@@ -92,36 +92,45 @@ const chords = [
   { name: 'Db7', type: 'Dominant Seventh' },
   { name: 'Dbmaj7', type: 'Major Seventh' },
   { name: 'Dbm7', type: 'Minor Seventh' }];
-const listOfSounds = chords; // Corrected: Added const keyword before listOfSounds
-const randomNumber = Math.floor(Math.random() * listOfSounds.length);
-const secondRandomNumber=Math.floor(Math.random() * listOfSounds.length);
-const thirdRandomNumber=Math.floor(Math.random() * listOfSounds.length);
-while(randomNumber==secondRandomNumber&&secondRandomNumber==thirdRandomNumber&&thirdRandomNumber==randomNumber){
-const thirdRandomNumber=Math.floor(Math.random() * listOfSounds.length);
-  const secondRandomNumber=Math.floor(Math.random() * listOfSounds.length);
-}
-console.log(secondRandomNumber);
-console.log(thirdRandomNumber);
-console.log(randomNumber);
-const handleClick = () => {
-  console.log('Random chord:', listOfSounds[randomNumber]);
-};
-export default function SoundGuessingGame() {
-  
 
-  return (
-    <div>
-      <div>
-        <button onClick={handleClick}>Listen to this chord</button>
-        {randomNumber !== undefined && <GuitarChordSound chord={listOfSounds[randomNumber].name} />}
-      </div>
+  export default function SoundGuessingGame() {
+    const [randomNumber, setRandomNumber] = useState(null);
+    const [choiceNums, setChoiceNums] = useState([]);
+  
+    const generateRandomNumbers = () => {
+      const randomNums = [];
+      while (randomNums.length < 3) {
+        const num = Math.floor(Math.random() * chords.length);
+        if (!randomNums.includes(num)) {
+          randomNums.push(num);
+        }
+      }
+      return randomNums;
+    };
+  
+    useEffect(() => {
+      const randomNums = generateRandomNumbers();
+      setChoiceNums(randomNums);
+      setRandomNumber(Math.floor(Math.random() * randomNums.length));
+    }, []);
+  
+    const handleClick = () => {
+      console.log('Random chord:', chords[choiceNums[randomNumber]].name);
+    };
+  
+    return (
       <div>
         <div>
-          <button>{listOfSounds[randomNumber].name}</button>
-          <button>{listOfSounds[secondRandomNumber].name}</button>
-          <button>{listOfSounds[thirdRandomNumber].name}</button>
+          <button onClick={handleClick}>Listen to this chord</button>
+          {randomNumber !== null && <GuitarChordSound chord={chords[choiceNums[randomNumber]].name} />}
+        </div>
+        <div>
+          <div className='flex flex-row space-x-4 '>
+            {choiceNums.map((val, index) => (
+              <button className='bg-gray-900' key={index}>{chords[val].name}</button>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
