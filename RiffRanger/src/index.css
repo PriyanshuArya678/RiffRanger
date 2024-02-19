@@ -2,7 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+body{
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.Main{
+  background-image: url('./assets/guitar1.jpg');
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* :root {b
+>>>>>>> e62295c84941b060ea23b78cf022cba45d71b9af
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -69,4 +83,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
