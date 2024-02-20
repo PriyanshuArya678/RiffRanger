@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import {Navbar} from './Navbar';
-import Body from './Body';
+import {Navbar} from './MainPage/Navbar';
+import Body from './MainPage/Body';
 import ChordLibrary from './ChordLibrary';
 import SoundGuessingGame from './ChordGuessingGame/SoundGuessingGame';
 import Metronome from './Metronome/Metronome';
@@ -9,11 +9,11 @@ function App() {
 
   return (
     <div >
-      {/* <Navbar/>
-      <Body/> */}
+      <Body/>
       {/* <ChordLibrary/> */}
       {/* <SoundGuessingGame/> */}
-      <Metronome/>
+      {/* <Metronome/> */}
+      {/* <Motivation/> */}
     </div>
   )
 }

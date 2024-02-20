@@ -3,7 +3,7 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 export function Navbar() {
   return (
     
-    <div className='flex flex-row space-x-11 p-4 items-center justify-between bg-neutral-800'>
+    <div className='flex flex-row space-x-11 p-4 items-center justify-between'>
         <div className='flex flex-row space-x-11 mx-auto'>
         <ul className='text-white rounded-2xl p-2 py-2'><a href="#">COURSES</a></ul>
         <ul className='text-white rounded-2xl p-2 py-2'><a href="#">SONGS</a></ul>
