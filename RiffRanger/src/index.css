@@ -9,7 +9,7 @@ body{
 }
 
 .Main{
-  background-image: url('./assets/guitar1.jpg');
+  background-image: url('./assets/bg-image.jpg');
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
