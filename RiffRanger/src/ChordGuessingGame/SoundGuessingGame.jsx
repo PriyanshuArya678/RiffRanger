@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import GuitarChordSound from './GuitarChordSound';
+
 const chords = [
   { name: 'A', type: 'Major' },
   { name: 'B', type: 'Major' },
@@ -119,13 +120,13 @@ const chords = [
     };
   
     return (
-      <div>
+      <div className='bg-black min-h-screen'>
         <div>
-          <button onClick={handleClick}>Listen to this chord</button>
+          <button className='text-white'onClick={handleClick}>Listen to this chord</button>
           {randomNumber !== null && <GuitarChordSound chord={chords[choiceNums[randomNumber]].name} />}
         </div>
         <div>
-          <div className='flex flex-row space-x-4 '>
+          <div className='flex flex-row space-x-4 text-white '>
             {choiceNums.map((val, index) => (
               <button className='bg-gray-900' key={index}>{chords[val].name}</button>
             ))}

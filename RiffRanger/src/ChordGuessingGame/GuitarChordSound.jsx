@@ -16,7 +16,7 @@ const GuitarChordSound = ({ chord }) => {
   }, []);
 
   return (
-    <ins className="scales_chords_api" chord={chord} instrument="guitar" output="sound">
+    <ins className="scales_chords_api" chord={chord} instrument="guitar" output="sound" nolink="false">
     </ins>
   );
 };
