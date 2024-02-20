@@ -9,11 +9,11 @@ function App() {
 
   return (
     <div >
-      <Navbar/>
-      <Body/>
+      {/* <Navbar/>
+      <Body/> */}
       {/* <ChordLibrary/> */}
       {/* <SoundGuessingGame/> */}
-      {/* <Metronome/> */}
+      <Metronome/>
     </div>
   )
 }
