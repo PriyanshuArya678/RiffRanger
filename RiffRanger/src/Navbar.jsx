@@ -1,20 +1,36 @@
 import React from 'react'
 import { MdOutlineArrowDropDown } from "react-icons/md";
+import './NavBar.css'
 export function Navbar() {
   return (
-    
-    <div className='flex flex-row space-x-11 p-4 items-center justify-between'>
-        <div className='flex flex-row space-x-11 mx-auto'>
-        <ul className='text-white rounded-2xl p-2 py-2'><a href="#">COURSES</a></ul>
-        <ul className='text-white rounded-2xl p-2 py-2'><a href="#">SONGS</a></ul>
-        <ul className='text-white rounded-2xl p-2 py-2 flex flex-row items-end'>
-            <button  className=''>TOOLS</button>
-            <MdOutlineArrowDropDown />    
-        </ul>
-        <ul className='text-white rounded-2xl p-2 py-2'><a href="#">EXPLORE</a></ul>
-        <ul className='text-white rounded-2xl p-2 py-2'><a href="#">STORE</a></ul>
-        </div>
-        <ul ><button className='bg-blue-600 p-2 rounded-2xl hover:bg-blue-900 text-white'>LOG IN</button></ul>
+    <div className='navbar-container'>
+      <div className='navbar-items items-center'>
+        <NavItem link="#" text="COURSES" />
+        <NavItem link="#" text="SONGS" />
+        <NavItemWithDropdown text="TOOLS" />
+        <NavItem link="#" text="EXPLORE" />
+        <NavItem link="#" text="STORE" />
+      </div>
+      <div className='login-button'>
+        <button className='login-btn'>LOG IN</button>
+      </div>
     </div>
-  )
+  );
 }
+
+const NavItem = ({ link, text }) => (
+  <ul className='nav-item'>
+    <a href={link} className='nav-link'>
+      {text}
+    </a>
+  </ul>
+);
+
+const NavItemWithDropdown = ({ text }) => (
+  <ul className='nav-item dropdown'>
+    <button className='nav-link with-dropdown'>
+      {text} <MdOutlineArrowDropDown />
+    </button>
+    {/* Add dropdown content here if needed */}
+  </ul>
+);
