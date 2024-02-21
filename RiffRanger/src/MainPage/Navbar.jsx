@@ -1,18 +1,24 @@
 import React from 'react'
 import { MdOutlineArrowDropDown } from "react-icons/md";
-import './NavBar.css'
+import '../NavBar.css'
+
 export function Navbar() {
   return (
-    <div className='navbar-container'>
-      <div className='navbar-items items-center'>
+    <div className='navbar-container text-2xl flex justify-between fixed top-0 w-full p-4 z-10 '>
+      <img src="\src\assets\RiffRanger-logos_transparent.png" alt="" className="w-32" / >
+      
+      <div className='navbar-items items-center '>
         <NavItem link="#" text="COURSES" />
         <NavItem link="#" text="SONGS" />
         <NavItemWithDropdown text="TOOLS" />
         <NavItem link="#" text="EXPLORE" />
         <NavItem link="#" text="STORE" />
-      </div>
-      <div className='login-button'>
-        <button className='login-btn'>LOG IN</button>
+        </div>
+      <div className='login-button flex gap-4'>
+      <button className='login-btn bg-gradient-to-r from-primary to-secondary hover:bg-gradient-to-r from from-secondary to-primary '>LOG IN</button>
+      <button className='login-btn bg-gradient-to-r from-primary to-secondary'>SIGN UP</button>
+      
+        
       </div>
     </div>
   );

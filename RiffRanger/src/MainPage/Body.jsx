@@ -1,7 +1,7 @@
 import React from 'react';
-import ChordDisplay from './ChordDisplay';
+import ChordDisplay from '../ChordDisplay';
 import { Navbar } from './Navbar';
-import './body.css'; // Import your CSS file
+import '../body.css'; // Import your CSS file
 
 export default function Body() {
   return (

@@ -2,7 +2,7 @@
 
 .navbar-container {
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
     padding: 1rem;
     background-color:rgb(39, 24, 19); /* Set your background color */
@@ -42,8 +42,8 @@
   }
   
   .login-btn {
-    background-color: #4285f4; /* Set your login button color */
-    color: white;
+    background-color: white; /* Set your login button color */
+    color: BLACK;
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 0.5rem;
