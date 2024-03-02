@@ -4,13 +4,35 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  
+
   theme: {
     extend: {
       colors:{
-        primary:"#ffc001",
-        secondary:"#E92B1A",
-      }
+        primary:"#5bc5a9",
+        secondary:"#348080",
+      },
+      keyframes: {
+        typing: {
+          '0%': {
+            width: '0%',
+            visibility: 'hidden',
+          },
+          '100%': {
+            width: '100%',
+          },
+        },
+        blink: {
+          '50%': {
+            borderColor: 'transparent',
+          },
+          '100%': {
+            borderColor: 'white',
+          },
+        },
+      },
+      animation: {
+        typing: 'typing 2s steps(20) infinite alternate',
+      },
     },
     container:{
       center:true,

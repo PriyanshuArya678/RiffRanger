@@ -1,5 +1,23 @@
 img{
-    width:700px;
+    width:600px;
     height:300px;
     float:right;
 }
+/* body.css */
+
+@keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .typing-text::after {
+    content: '|';
+    display: inline-block;
+    width: 0;
+    animation: typing 3s steps(30) infinite;
+  }
+  

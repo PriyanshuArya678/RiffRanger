@@ -1,19 +1,37 @@
-import React from 'react';
-import ChordDisplay from '../ChordDisplay';
+import React, { useEffect, useState } from 'react';
 import { Navbar } from './Navbar';
-import '../body.css'; // Import your CSS file
 import mainImage from '../assets/main_image.png';
+import '../body.css';
 
 export default function Body() {
+  const [typedText, setTypedText] = useState('');
+
+  const textToType = 'LEARN AND MASTER THE ART OF GUITAR';
+
+  useEffect(() => {
+    const typingDelay = 50; // Adjust the delay between each character typing
+
+    const typeText = () => {
+      for (let i = 0; i <= textToType.length; i++) {
+        setTimeout(() => {
+          setTypedText(textToType.slice(0, i));
+        },i* typingDelay);
+      }
+    };
+
+    typeText();
+    
+  }, []);
+
   return (
     <div className='Main flex flex-col justify-between'>
       <Navbar />
-      
+
       <div className="flex flex-row-reverse justify-between items-center w-full">
-        <img src={mainImage} alt="" className="mt-38 py-20" />
-        
-        <div className="text-black ml-10 text-6xl font-semibold ">
-          LEARN AND MASTER THE ART OF GUITAR
+        <img src={mainImage} alt="" className="mt-38 px-110 py-20" />
+
+        <div className="text-black ml-10 text-6xl font-semibold">
+          {typedText}
         </div>
       </div>
 

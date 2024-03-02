@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MdOutlineArrowDropDown } from 'react-icons/md';
+import { MdOutlineMenu } from 'react-icons/md';
 import '../NavBar.css';
 
 export function Navbar() {
@@ -22,26 +22,30 @@ export function Navbar() {
           <li><a href='#'>COMMUNITY</a></li>
           <li><a href='#'>STORE</a></li>
         </ul>
-        <div className={`sm:hidden cursor-pointer ${isMobileMenuOpen ? 'hidden' : ''}`} onClick={toggleMobileMenu}>
-          Menu
+        <div className={`sm:hidden cursor-pointer`} onClick={toggleMobileMenu}>
+          <MdOutlineMenu size={28} />
         </div>
       </div>
       <div className='login-button flex gap-4 mt-4 sm:mt-0'>
-      <button className='login-btn bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary'>
-  LOG IN
-</button>
-<button className='login-btn bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary'>SIGN UP</button>
+        <button className='login-btn bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white'>
+          LOG IN
+        </button>
+        <button className='login-btn bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white'>
+          SIGN UP
+        </button>
       </div>
       {/* Mobile Menu */}
-      <div className={`sm:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
-        <ul className='list-none '>
-          <li><a href='#'>COURSE</a></li>
-          <li><a href='#'>TOOLS</a></li>
-          <li><a href='#'>EXPLORE</a></li>
-          <li><a href='#'>COMMUNITY</a></li>
-          <li><a href='#'>STORE</a></li>
-        </ul>
-      </div>
+      {isMobileMenuOpen && (
+        <div className='sm:hidden'>
+          <ul className='list-none'>
+            <li><a href='#'>COURSE</a></li>
+            <li><a href='#'>TOOLS</a></li>
+            <li><a href='#'>EXPLORE</a></li>
+            <li><a href='#'>COMMUNITY</a></li>
+            <li><a href='#'>STORE</a></li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
