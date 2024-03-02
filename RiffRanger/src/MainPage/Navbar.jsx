@@ -4,8 +4,8 @@ import '../NavBar.css'
 
 export function Navbar() {
   return (
-    <div className='navbar-container text-2xl flex justify-between fixed top-0 w-full p-4 z-10 '>
-      <img src="\src\assets\RiffRanger-logos_transparent.png" alt="" className="w-32" / >
+    <div className='navbar-container text-2xl flex justify-between fixed top-0 w-full px-4 py-2 z-10 '>
+      <img src="\src\assets\RiffRanger-logos_transparent.png" alt="" className="w-10" / >
       
       <div className='navbar-items items-center '>
         <NavItem link="#" text="COURSES" />

@@ -2,10 +2,9 @@
 
 .navbar-container {
     display: flex;
-
     align-items: center;
     padding: 1rem;
-    background-color:rgb(39, 24, 19); /* Set your background color */
+    background-color:rgb(110, 33, 7); /* Set your background color */
   }
   
   .navbar-items {
