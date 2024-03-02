@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 body{
-  font-family: "Protest Riot", sans-serif;
-  font-weight: 400;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
   font-style: normal;
 
 }
 .Main{
-  background-image: url('./assets/bg-image.jpg');
+  background:white;
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;

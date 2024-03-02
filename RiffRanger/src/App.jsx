@@ -5,16 +5,17 @@ import ChordLibrary from './ChordLibrary';
 import SoundGuessingGame from './ChordGuessingGame/SoundGuessingGame';
 import Metronome from './Metronome/Metronome';
 import Motivation from './MainPage/Motivation'
+import Glossary from './Glossary/Glossary';
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div >
-      <Body/>
+      {/* <Body/> */}
       {/* <ChordLibrary/> */}
       {/* <SoundGuessingGame/> */}
       {/* <Metronome/> */}
-      <Motivation/>
+      {/* <Motivation/> */}
+      <Glossary/>
     </div>
   )
 }

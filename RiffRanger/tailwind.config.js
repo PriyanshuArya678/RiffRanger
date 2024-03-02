@@ -8,6 +8,8 @@ export default {
   theme: {
     extend: {
       colors:{
+        'navy': "#265073",
+        'light-green':'#9AD0C2',
         primary:"#ffc001",
         secondary:"#E92B1A",
       }
