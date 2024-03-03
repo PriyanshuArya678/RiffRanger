@@ -1,5 +1,4 @@
 import React from 'react';
-import './chorlibrary.css';
 
 export default function ChordLibraryBox(params) {
   return (

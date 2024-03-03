@@ -1,20 +1,22 @@
 import { useState } from 'react'
-import {Navbar} from './MainPage/Navbar';
+import NavBar from './NavBar';
 import Body from './MainPage/Body';
 import ChordLibrary from './ChordLibrary';
 import SoundGuessingGame from './ChordGuessingGame/SoundGuessingGame';
 import Metronome from './Metronome/Metronome';
 import Motivation from './MainPage/Motivation'
+import Glossary from './Glossary/Glossary';
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div >
-      <Body/>
+      {/* <Body/> */}
       {/* <ChordLibrary/> */}
       {/* <SoundGuessingGame/> */}
       {/* <Metronome/> */}
-      <Motivation/>
+      {/* <Motivation/> */}
+      <NavBar/>
+      <Glossary/>
     </div>
   )
 }

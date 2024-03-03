@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Navbar } from './Navbar';
 import mainImage from '../assets/main_image.png';
 import '../body.css';
 
@@ -25,7 +24,6 @@ export default function Body() {
 
   return (
     <div className='Main flex flex-col justify-between'>
-      <Navbar />
 
       <div className="flex flex-row-reverse justify-between items-center w-full">
         <img src={mainImage} alt="" className="mt-38 px-110 py-20" />
