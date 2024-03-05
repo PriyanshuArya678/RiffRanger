@@ -10,13 +10,13 @@ function App() {
 
   return (
     <div >
-      {/* <Body/> */}
+      <Body/>
       {/* <ChordLibrary/> */}
       {/* <SoundGuessingGame/> */}
       {/* <Metronome/> */}
-      {/* <Motivation/> */}
+      <Motivation/>
       <NavBar/>
-      <Glossary/>
+      {/* <Glossary/> */}
     </div>
   )
 }

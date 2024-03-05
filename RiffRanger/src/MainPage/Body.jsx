@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import mainImage from '../assets/main_image.png';
 import '../body.css';
-
+import Motivation from './Motivation';
 export default function Body() {
   const [typedText, setTypedText] = useState('');
 
