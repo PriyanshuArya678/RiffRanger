@@ -15,9 +15,16 @@ img{
   }
   
   .typing-text::after {
-    content: '|';
+    content: '|' black;
     display: inline-block;
     width: 0;
     animation: typing 3s steps(30) infinite;
   }
-  
+
+  @media screen and (max-width:600px){
+    .main-text{
+      font-size: medium;
+    }
+
+
+  }
