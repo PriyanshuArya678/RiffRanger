@@ -10,12 +10,16 @@ function App() {
 
   return (
     <div >
-      {/* <Body/> */}
+      {/* <div>
+        <div></div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/DPxsgf96Hh8" frameborder="0" ></iframe>
+      </div> */}
+      <Body/> */
       {/* <ChordLibrary/> */}
       {/* <SoundGuessingGame/> */}
       {/* <Metronome/> */}
       {/* <Motivation/> */}
-      <Glossary/>
+      /* <Glossary/>
     </div>
   )
 }
