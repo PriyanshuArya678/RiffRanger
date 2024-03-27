@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MdOutlineMenu } from 'react-icons/md';
 import './NavBar.css';
-
+import {Link} from 'react-router-dom'
 export default function NavBar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
