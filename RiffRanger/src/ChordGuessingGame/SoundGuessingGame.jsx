@@ -120,18 +120,21 @@ const chords = [
     };
   
     return (
-      <div className='bg-black min-h-screen'>
-        <div>
-          <button className='text-white'onClick={handleClick}>Listen to this chord</button>
+      <div className=' container mx:auto flex flex-col  bg-slate-800 h-screen w-[100vw]'>
+        <div className=''>
+        <div className='flex'>
+          <button className='text-black'onClick={handleClick}>Listen to this chord</button>
           {randomNumber !== null && <GuitarChordSound chord={chords[choiceNums[randomNumber]].name} />}
         </div>
         <div>
-          <div className='flex flex-row space-x-4 text-white '>
+          <div className='flex flex-row space-x-4 text-white    '>
             {choiceNums.map((val, index) => (
               <button className='bg-gray-900' key={index}>{chords[val].name}</button>
             ))}
           </div>
         </div>
+        </div>
+        
       </div>
     );
   }

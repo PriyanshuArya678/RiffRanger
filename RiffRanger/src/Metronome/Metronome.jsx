@@ -1,41 +1,87 @@
 import React, { useEffect, useRef, useState } from 'react'
 import metronomeSound from'../assets/Audio/metronom.mp3'
+import './Meteronome.css'
 function Metronome() {
     const [isRunning ,setIsRunning]=useState(false);
-    const [metronome,setMetronome]=useState(1000)
+    const [timebetweenBeats,settimebetweenBeats]=useState(1000);
+    const [sliderPosition,setSliderPosition] = useState(0);
     const audio =useRef(new Audio(metronomeSound))
     let intervalId
     useEffect(() => {
-        console.log(isRunning)
-        console.log(metronome)
+       
+        const val=1000-(10*sliderPosition);
+       console.log(sliderPosition);
+        settimebetweenBeats(val);
+       
         if(isRunning){
             intervalId=setInterval(()=>{
                 audio.current.play()
-            },metronome)
+            },timebetweenBeats)
         }
         else clearInterval(intervalId)
         return () => {
             clearInterval(intervalId);
         };
-    }, [isRunning,metronome]);
+    }, [isRunning,timebetweenBeats,sliderPosition]);
 
     const startOrStop=()=>{
-        console.log(isRunning)
         setIsRunning(!isRunning)
     }
 
     const increase=()=>{
-        setMetronome(previousValue=>previousValue-100)
+        if(sliderPosition<100){
+            setSliderPosition(previousValue=>parseInt(previousValue)+1)
+            
+        }
+        
     }
     const decrease=()=>{
-        setMetronome(previousValue=>previousValue+100)
+        if(sliderPosition>0){
+            setSliderPosition(previousValue=>parseInt(previousValue)-1)
+           
+        }
     }
   return (
-    <div className='flex flex-row space-x-3'>
-      <button onClick={startOrStop}className='bg-slate-400'>click me</button>
-      <button onClick={decrease}className='bg-slate-400'>decrease </button>
-      <button onClick={increase}className='bg-slate-400'>increase</button>
+    
+    
+   <div>
+        <h1>METRONOME</h1>
+       
+        
+
+     <div className="container mx-auto h-screen flex flex-col justify-center items-center relative">
+        
+         
+        <div className=' flex flex-row  '>
+        <div className=' pr-10'>
+        <button onClick={decrease}className='  bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white h-10 w-10 ml-2 text-3xl'>-</button>
+           
+        
+            </div>
+        <div class=" w-[40rem] relative">
+            <input type="range" min="0" max="100" id="slider" value={sliderPosition} onChange={(e)=>setSliderPosition(e.target.value)}></input>
+            <div id="selector" style={{left : `${sliderPosition}%`}} className="absolute bottom-0">
+                <div class="selectBtn"></div>
+                <div id="selectValue" className="" >{Math.round(sliderPosition)}</div>
+            </div>
+            
+            </div>  
+            <div className='pl-9 '>
+             <button onClick={increase}className=' mr-2 text-3xl  bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white h-10 w-10'> + </button>
+    
+    
+            </div>
+        </div>
+      
+            <div className='absolute pt-20'>
+            <button onClick={startOrStop} className=" bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white h-10 w-20 ">START</button>
+            </div>
+           
+   <div className='flex justify-center mt-4'>
+    
     </div>
+      </div>
+   </div>
   )
 }
 
