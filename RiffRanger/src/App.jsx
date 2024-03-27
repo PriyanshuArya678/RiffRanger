@@ -6,16 +6,17 @@ import SoundGuessingGame from './ChordGuessingGame/SoundGuessingGame';
 import Metronome from './Metronome/Metronome';
 import Motivation from './MainPage/Motivation'
 import Glossary from './Glossary/Glossary';
+import { Outlet } from 'react-router-dom';
 function App() {
 
   return (
     <div >
-      {/* <Body/> */}
+      <NavBar/>
+      <Outlet/>
       {/* <ChordLibrary/> */}
       {/* <SoundGuessingGame/> */}
-      <Metronome/>
+      {/* <Metronome/> */}
       {/* <Motivation/> */}
-      <NavBar/>
       {/* <Glossary/> */}
     </div>
   )
