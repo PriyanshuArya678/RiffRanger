@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Navbar} from './MainPage/Navbar';
+import NavBar from './NavBar';
 import Body from './MainPage/Body';
 import ChordLibrary from './ChordLibrary';
 import SoundGuessingGame from './ChordGuessingGame/SoundGuessingGame';
@@ -14,12 +14,13 @@ function App() {
         <div></div>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/DPxsgf96Hh8" frameborder="0" ></iframe>
       </div> */}
-      <Body/> */
+      <Body></Body>
+      <NavBar></NavBar>
       {/* <ChordLibrary/> */}
       {/* <SoundGuessingGame/> */}
       {/* <Metronome/> */}
-      {/* <Motivation/> */}
-      /* <Glossary/>
+      <Motivation/>
+      {/* /* <Glossary/> */}
     </div>
   )
 }
