@@ -64,8 +64,10 @@ body{
     left:0;
 
 }
-h1{
+#headline{
     padding-top: 40px;
+    margin-top:80px;
+    color:blue;
 
 }
 

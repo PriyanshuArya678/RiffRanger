@@ -53,3 +53,45 @@
 .login-btn:hover {
   background-color: #1953a3; /* Set your hover color */
 }
+
+/* Media queries for responsiveness */
+
+@media screen and (max-width: 768px) {
+  .navbar-items {
+    display: none;
+  }
+  .navbar-container.active .navbar-items {
+    display: flex; /* Show navbar items when navbar-container has active class */
+  }
+  
+  .with-dropdown {
+    display: none;
+  }
+  
+  .login-button {
+    display: none;
+  }
+  
+  .navbar-container {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333; /* Set your dropdown background color */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for dropdown */
+  }
+  
+  .navbar-items .nav-item {
+    width: 100%;
+  }
+}
