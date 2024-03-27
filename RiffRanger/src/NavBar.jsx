@@ -10,23 +10,22 @@ export default function NavBar() {
   };
 
   return (
-    <div className='shadow-md text-xl mt-3 flex flex-col justify-between fixed top-0 w-full p-4 z-10 sm:flex-row'>
-      <div className='text-3xl font-bold flex items-center'>
+    <div className='shadow-md text-xl mt-3 flex flex-row justify-between fixed top-0 w-full p-4 z-10'>
+      <div className='text-3xl font-bold flex flex-row items-center'>
         <img src='' className='w-10' alt='' /> RiffRanger
       </div>
-      <div className='navbar-items flex gap-4 mt-4 sm:mt-0 sm:flex'>
-        <ul className={`list-none flex gap-4 sm:flex ${isMobileMenuOpen ? 'hidden' : ''}`}>
+      
+      <div className='navbar-items flex flex-row gap-4 mt-4 '>
+          <ul className="flex flex-row justify-center items-center gap-3">
           <li><a href='#'>COURSE</a></li>
           <li><a href='#'>TOOLS</a></li>
           <li><a href='#'>EXPLORE</a></li>
           <li><a href='#'>COMMUNITY</a></li>
           <li><a href='#'>STORE</a></li>
         </ul>
-        <div className={`sm:hidden cursor-pointer`} onClick={toggleMobileMenu}>
-          <MdOutlineMenu size={28} />
-        </div>
+      
       </div>
-      <div className='login-button flex gap-4 mt-4 sm:mt-0'>
+      <div className='login-button flex gap-4 mt-4'>
         <button className='login-btn bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white'>
           LOG IN
         </button>
@@ -36,7 +35,7 @@ export default function NavBar() {
       </div>
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className='sm:hidden'>
+        <div className=''>
           <ul className='list-none'>
             <li><a href='#'>COURSE</a></li>
             <li><a href='#'>TOOLS</a></li>

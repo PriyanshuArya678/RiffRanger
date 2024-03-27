@@ -1,43 +1,33 @@
-/* Navbar.css */
-
-.navbar-container {
-  display: flex;
-  align-items: center;
-  padding: 1.3rem;
-  /* Set your background color */
+.navbar-items{
+ justify-content: space-between;
+ padding-left: 20px;
+ margin-bottom: 10px;
+ font-weight: 400;
+ padding-right:10px;
+ 
+}
+.navbar-items li a {
+  transition :0.1s ease-in-out;
+}
+.navbar-items li a:hover{
+  color:#17cf97;
+}
+.navbar-items li a hover::after{
+  content:" ";
+  width:30%;
+  height:2px;
+  background-color:#17cf97; 
+  position: absolute;
+  bottom:-4px;
+  left:20px;
 }
 
-.navbar-items {
-  display: flex;
-  gap: 1rem;
-}
 
-.nav-item {
-  list-style: none;
-}
 
-.nav-link {
-  text-decoration: none;
-  color: white;
-  font-size: 2.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #fbd38d; /* Set your hover color */
-  background-color: #1a1a1a; /* Set your hover background color */
-}
-
-.with-dropdown {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
 
 .login-button {
   /* Add any specific styling for the login button */
+  margin-bottom: 10px;
 }
 
 .login-btn {
@@ -56,42 +46,17 @@
 
 /* Media queries for responsiveness */
 
-@media screen and (max-width: 768px) {
-  .navbar-items {
-    display: none;
-  }
-  .navbar-container.active .navbar-items {
-    display: flex; /* Show navbar items when navbar-container has active class */
-  }
+@media screen and (max-width:700px) {
   
-  .with-dropdown {
-    display: none;
+  .navbar-items{
+    display:none;
+    width: 24px;
+    visibility: hidden;
+    
   }
-  
-  .login-button {
-    display: none;
+  .login-button{
+    display:none;
+    visibility: hidden;
   }
-  
-  .navbar-container {
-    justify-content: space-between;
-  }
-}
 
-@media screen and (max-width: 768px) {
-  .navbar-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #333; /* Set your dropdown background color */
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for dropdown */
-  }
-  
-  .navbar-items .nav-item {
-    width: 100%;
-  }
 }
