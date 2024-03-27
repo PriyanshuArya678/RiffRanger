@@ -45,14 +45,15 @@ function Metronome() {
     
     
    <div>
-        <h1>METRONOME</h1>
+        
        
         
 
      <div className="container mx-auto h-screen flex flex-col justify-center items-center relative">
+     <h1 className="text-4xl mb-4 mt-20 absolute top-20 font-extrabold bg-black text-white w-50 h-20 px-5  flex flex-col justify-center items-center">METRONOME</h1>
         
          
-        <div className=' flex flex-row  '>
+        <div className=' flex flex-row'>
         <div className=' pr-10'>
         <button onClick={decrease}className='  bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white h-10 w-10 ml-2 text-3xl'>-</button>
            
