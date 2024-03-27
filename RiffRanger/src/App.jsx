@@ -6,21 +6,18 @@ import SoundGuessingGame from './ChordGuessingGame/SoundGuessingGame';
 import Metronome from './Metronome/Metronome';
 import Motivation from './MainPage/Motivation'
 import Glossary from './Glossary/Glossary';
+import { Outlet } from 'react-router-dom';
 function App() {
 
   return (
     <div >
-      {/* <div>
-        <div></div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/DPxsgf96Hh8" frameborder="0" ></iframe>
-      </div> */}
-      <Body></Body>
-      <NavBar></NavBar>
+      <NavBar/>
+      <Outlet/>
       {/* <ChordLibrary/> */}
       {/* <SoundGuessingGame/> */}
       {/* <Metronome/> */}
-      <Motivation/>
-      {/* /* <Glossary/> */}
+      {/* <Motivation/> */}
+      {/* <Glossary/> */}
     </div>
   )
 }
