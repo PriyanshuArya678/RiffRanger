@@ -21,13 +21,22 @@ img{
     animation: typing 3s steps(30) infinite;
   }
 
-  @media screen and (max-width:970px){
-
-
-    .main-text{
-      font-size: xx-small;
-      background-color: ;
+  @media screen and (max-width: 970px) {
+    .main-text {
+      /* Add any specific styling for the main text on smaller screens */
+      /* For example: font-size: smaller; */
     }
-
-
+    .Main {
+      /* Add any specific styling for the main container on smaller screens */
+      display: flex;
+      flex-direction: column;
+      font-size: small;
+    }
+    img {
+      /* Adjust the height of the image for smaller screens */
+      height: auto; /* or specify a reasonable height */
+      width: auto; /* or specify a reasonable width */
+      max-width: 100%; /* Ensure the image does not overflow its container */
+      max-height: 100%; /* Ensure the image does not overflow its container */
+    }
   }
