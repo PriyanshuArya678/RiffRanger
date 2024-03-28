@@ -21,9 +21,12 @@ img{
     animation: typing 3s steps(30) infinite;
   }
 
-  @media screen and (max-width:600px){
+  @media screen and (max-width:970px){
+
+
     .main-text{
-      font-size: medium;
+      font-size: xx-small;
+      background-color: ;
     }
 
 

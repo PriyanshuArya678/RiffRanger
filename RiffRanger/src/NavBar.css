@@ -5,6 +5,7 @@
  font-weight: 400;
  padding-right:10px;
  
+ 
 }
 .navbar-items li a {
   transition :0.1s ease-in-out;
@@ -12,11 +13,11 @@
 .navbar-items li a:hover{
   color:#17cf97;
 }
-.navbar-items li a hover::after{
+.navbar-items li a hover::after,navbar li a  active::after{
   content:" ";
   width:30%;
   height:2px;
-  background-color:#17cf97; 
+  background:#17cf97; 
   position: absolute;
   bottom:-4px;
   left:20px;
@@ -38,25 +39,53 @@
   border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  justify-content: space-between;
 }
 
 .login-btn:hover {
   background-color: #1953a3; /* Set your hover color */
 }
+.icons{
+display: none;
+margin-top: 20px;
+padding-right: 20px;
+font-size: 25px;
+cursor:pointer;
+}
 
 /* Media queries for responsiveness */
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:975px) {
   
   .navbar-items{
-    display:none;
+    display:flex;
+    flex-direction:column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top:70px;
+    right:-300px;
+    width:300px;
+    height:70vh;
+    padding: 90px;
     width: 24px;
-    visibility: hidden;
+    background-color: skyblue;
     
+  }
+  .navbar-items li 
+  {
+    margin-bottom: 25px;
   }
   .login-button{
     display:none;
     visibility: hidden;
   }
+  .icons{
+    display: block;
+  }
+  .navbar-items.active{
+    right:0px;
+  }
+ 
 
 }
