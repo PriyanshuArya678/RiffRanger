@@ -55,7 +55,7 @@ cursor:pointer;
 
 /* Media queries for responsiveness */
 
-@media screen and (max-width:975px) {
+@media screen and (max-width:75px) {
   
   .navbar-items{
     display:flex;

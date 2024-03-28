@@ -120,7 +120,7 @@ const chords = [
     };
   
     return (
-      <div className=' container mx:auto flex flex-col  bg-slate-800 h-screen w-[100vw]'>
+      <div className='flex flex-col justify-center items-center'>
         <div className=''>
         <div className='flex'>
           <button className='text-black'onClick={handleClick}>Listen to this chord</button>
@@ -134,7 +134,6 @@ const chords = [
           </div>
         </div>
         </div>
-        
       </div>
     );
   }
