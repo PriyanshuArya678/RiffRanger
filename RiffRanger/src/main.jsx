@@ -22,6 +22,10 @@ const router=createBrowserRouter([
       element:<Metronome/>
     },
     {
+      path:'tools',
+      element:<NavBar/>
+    },
+    {
       path:"tools/soundGuessingGame",
       element:<SoundGuessingGame/>
     },
