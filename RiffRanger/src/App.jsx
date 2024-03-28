@@ -1,3 +1,4 @@
+import Body from './MainPage/Body';
 import NavBar from './NavBar';
 import { Outlet } from 'react-router-dom';
 function App() {

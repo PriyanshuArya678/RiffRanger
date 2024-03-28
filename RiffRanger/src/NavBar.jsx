@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MdOutlineMenu } from 'react-icons/md';
 import './NavBar.css';
-import {Link} from 'react-router-dom'
+
 export default function NavBar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -10,12 +10,12 @@ export default function NavBar() {
   };
 
   return (
-    <div className='shadow-md text-xl mt-3 flex flex-row justify-between fixed top-0 w-full p-4 z-10'>
+    <div className='shadow-md text-xl mt-2 flex flex-row justify-between fixed top-0 w-full p-2 z-10'>
       <div className='text-3xl font-bold flex flex-row items-center'>
-        <img src='' className='w-10' alt='' /> RiffRanger
+        <img src='' className='w-6' alt='' /> RiffRanger
       </div>
       
-      <div className='navbar-items flex flex-row gap-4 mt-4 '>
+      <div className='navbar-items flex flex-row gap-4 mt-2 '>
           <ul className="flex flex-row justify-center items-center gap-3">
           <li><a href='#'>COURSE</a></li>
           <li><a href='#'>TOOLS</a></li>
