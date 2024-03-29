@@ -13,6 +13,9 @@
 .navbar-items li a:hover{
   color:#17cf97;
 }
+Link:hover{
+  color:#17cf97;
+}
 .navbar-items li a hover::after,navbar li a  active::after{
   content:" ";
   width:30%;
@@ -55,7 +58,7 @@ cursor:pointer;
 
 /* Media queries for responsiveness */
 
-@media screen and (max-width:75px) {
+@media screen and (max-width:970px) {
   
   .navbar-items{
     display:flex;
@@ -70,6 +73,7 @@ cursor:pointer;
     padding: 90px;
     width: 24px;
     background-color: skyblue;
+    border-radius:25px
     
   }
   .navbar-items li 
