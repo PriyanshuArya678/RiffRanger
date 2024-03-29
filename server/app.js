@@ -7,9 +7,6 @@ const musicTermDictionary = {
     "Accent": "Emphasis placed on a particular note or beats within a musical phrase.",
     // Add more terms and their meanings here
 };
-app.get('/',(req,res)=>{
-    res.send('hello')
-})
 app.get('/musicTerm/:key', (req, res) => {
     const key = req.params.key;
     const meaning = musicTermDictionary[key];

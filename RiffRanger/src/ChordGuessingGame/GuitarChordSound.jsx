@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
-
 const GuitarChordSound = ({ chord }) => {
  
   useEffect(() => {
     // Dynamically load the scales-chords API script
     const script = document.createElement('script');
     script.async = true;
-    script.src = 'https://www.scales-chords.com/api/scales-chords-api.js';
+    script.src = 'https://www.scales-chords.com/api/scales-chords-api';
     document.head.appendChild(script);
 
     // Clean up
@@ -14,10 +13,17 @@ const GuitarChordSound = ({ chord }) => {
       document.head.removeChild(script);
     };
   }, []);
-
+  const play =()=>{
+    
+  }
   return (
-    <ins className="scales_chords_api" chord={chord} instrument="guitar" output="sound" nolink="false">
-    </ins>
+    <div>
+      <div onClick={() => window.location.reload(false)}>play</div>
+      <div onClick={play} className="scales_chords_api" chord={chord} instrument="guitar" output="sound" nolink="false">
+      
+      </div>
+    </div>
+    
   );
 };
 

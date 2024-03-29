@@ -10,17 +10,8 @@
 .navbar-items li a {
   transition :0.1s ease-in-out;
 }
-.navbar-items li a:hover{
+Link:hover{
   color:#17cf97;
-}
-.navbar-items li a hover::after,navbar li a  active::after{
-  content:" ";
-  width:30%;
-  height:2px;
-  background:#17cf97; 
-  position: absolute;
-  bottom:-4px;
-  left:20px;
 }
 
 
@@ -55,7 +46,7 @@ cursor:pointer;
 
 /* Media queries for responsiveness */
 
-@media screen and (max-width:75px) {
+@media screen and (max-width:975px) {
   
   .navbar-items{
     display:flex;

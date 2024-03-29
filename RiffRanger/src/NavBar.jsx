@@ -34,7 +34,7 @@ const closeDropDown = () => {
             <span>TOOLS</span>
             {isDropDownOpen && (
               <div className=" flex flex-col absolute top-full left-0 bg-white shadow-md mt-2 py-2 rounded-lg" onMouseEnter={toggleDropDown} onMouseLeave={closeDropDown}>
-                <Link to={`tools/metronome`} className='block px-4 py-2 hover:bg-gray-100 border-b border-gray-200'>Metronome</Link>
+                <Link to={'tools/metronome'} className='block px-4 py-2 hover:bg-gray-100 border-b border-gray-200'>Metronome</Link>
                 <Link to={`tools/soundGuessingGame`} className='block px-4 py-2 hover:bg-gray-100 border-b border-gray-200'>Sound Guessing Game</Link>
                 <Link to={`tools/chordLibrary`} className='block px-4 py-2 hover:bg-gray-100 border-b border-gray-200'>Chord Library</Link>
                 <Link to={`tools/glossary`} className='block px-4 py-2 hover:bg-gray-100'>Glossary</Link>
