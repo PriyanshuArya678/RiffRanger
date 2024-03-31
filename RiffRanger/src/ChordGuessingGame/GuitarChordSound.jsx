@@ -19,7 +19,7 @@ const GuitarChordSound = ({ chord }) => {
   return (
     <div>
       <div onClick={() => window.location.reload(false)}>play</div>
-      <div onClick={play} className="scales_chords_api" chord={chord} instrument="guitar" output="sound" nolink="false">
+      <div onClick={play} className="scales_chords_api" chord={chord} instrument="guitar" output="sound">
       
       </div>
     </div>

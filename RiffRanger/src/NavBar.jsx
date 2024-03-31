@@ -5,11 +5,6 @@ import { FaBars } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 export default function NavBar() {
-  // const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // const toggleMobileMenu = () => {
-  //   setMobileMenuOpen(!isMobileMenuOpen);
-  // };
 const [isClicked, setClicked] = useState(false);
 const [isDropDownOpen,setisDropDownOpen]=useState(false)
 const toggleClicked = () => {
@@ -53,14 +48,9 @@ const closeDropDown = () => {
         </button>
         
       </div>
-      {/* Mobile Menu */}
-      {/* {isMobileMenuOpen && ( */}
       <div className='icons mt-2'>
         {isClicked ? <FaTimes onClick={toggleClicked} /> : <FaBars onClick={toggleClicked} />}
       </div>
-
-      
-      {/* )} */}
     </div>
   );
 }
