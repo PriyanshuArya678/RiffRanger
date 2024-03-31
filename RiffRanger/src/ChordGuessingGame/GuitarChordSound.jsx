@@ -1,27 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
+import * as Tone from 'tone'
 const GuitarChordSound = ({ chord }) => {
- 
-  useEffect(() => {
-    // Dynamically load the scales-chords API script
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.scales-chords.com/api/scales-chords-api';
-    document.head.appendChild(script);
-
-    // Clean up
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
-  const play =()=>{
-    
+  async function playChord(){
+    await Tone.start();
+    const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+  const now = Tone.now()
+synth.triggerAttack("C4", now);
+synth.triggerAttack("E4", now+0.02);
+synth.triggerAttack("C4", now +0.04);
+synth.triggerAttack("G4", now +0.06);
+synth.triggerAttack("E4", now+0.08 );
+synth.triggerRelease(["C4", "E4", "C4", "G4", "E4"], now + 1);
   }
+  useEffect(()=>{
+    console.log(chord)
+    playChord()
+  },[chord])
   return (
     <div>
-      <div onClick={() => window.location.reload(false)}>play</div>
-      <div onClick={play} className="scales_chords_api" chord={chord} instrument="guitar" output="sound">
-      
-      </div>
+      <button onClick={playChord}>play</button>
     </div>
     
   );

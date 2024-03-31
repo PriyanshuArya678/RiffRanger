@@ -118,6 +118,7 @@ const chords = [
     const handleClick = () => {
       console.log('Random chord:', chords[choiceNums[randomNumber]].name);
     };
+    
   
     return (
       <div className='flex flex-col justify-center items-center mt-40'>

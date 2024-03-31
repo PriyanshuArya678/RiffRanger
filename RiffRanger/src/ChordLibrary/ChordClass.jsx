@@ -3,6 +3,7 @@ import { ChordDisplay, getChordByName,Chords } from '@magicdidac/chord-display';
 import { useParams } from 'react-router-dom';
 
 export default function ChordClass() {
+
   const cChords = [
     { name: 'C', frets: [-1, 3, 2, 0, 1, 0] },
     { name: 'Cm', frets: [-1, 3, 5, 5, 4, 3] },
@@ -79,13 +80,7 @@ export default function ChordClass() {
             
     return (
         <div className='flex flex-row w-auto'>
-            <ChordDisplay chord={getChordByName(chordClass)} />
-            <ChordDisplay chord={chord} />
-            <ChordDisplay chord={getChordByName(chordClass+'m')} />
-            <ChordDisplay chord={getChordByName(chordClass+'#')} />
-            <ChordDisplay chord={getChordByName(chordClass+'#m')} />
-            <ChordDisplay chord={getChordByName(chordClass+'7')} />
-            <ChordDisplay chord={getChordByName(chordClass+'m7')} />
+            <ChordDisplay chord={cChords[0]} />
         </div>
     );
 }
