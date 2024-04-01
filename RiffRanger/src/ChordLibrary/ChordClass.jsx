@@ -1,86 +1,67 @@
 import React, { useEffect, useState } from 'react';
-import { ChordDisplay, getChordByName,Chords } from '@magicdidac/chord-display';
+import { ChordDisplay } from '@magicdidac/chord-display';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export default function ChordClass() {
+  const { chordClass } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [chordList, setChordList] = useState([]);
+  const chordTypes = ['', '_m', '_7', '_m7', '_maj7', '_dim', '_aug', '_sus2', '_sus4'];
 
-  const cChords = [
-    { name: 'C', frets: [-1, 3, 2, 0, 1, 0] },
-    { name: 'Cm', frets: [-1, 3, 5, 5, 4, 3] },
-    { name: 'C7', frets: [-1, 3, 2, 3, 1, 0] },
-    { name: 'Cmaj7', frets: [-1, 3, 2, 0, 0, 0] },
-    { name: 'Cm7', frets: [-1, 3, 5, 3, 4, 3] },
-    { name: 'Cdim', frets: [-1, -1, 2, 3, 2, 3] },
-    { name: 'Caug', frets: [-1, 3, 2, 1, 1, -1] },
-    { name: 'Csus2', frets: [-1, 3, 0, 0, 1, 3] },
-    { name: 'Csus4', frets: [-1, 3, 3, 0, 1, 1] }
-  ];
-  const dChords = [
-    { name: 'D', frets: [-1, -1, 0, 2, 3, 2] },
-    { name: 'Dm', frets: [-1, -1, 0, 2, 3, 1] },
-    { name: 'D7', frets: [-1, -1, 0, 2, 1, 2] },
-    { name: 'Dmaj7', frets: [-1, -1, 0, 2, 2, 2] },
-    { name: 'Dm7', frets: [-1, -1, 0, 2, 1, 1] },
-    { name: 'Ddim', frets: [-1, -1, 0, 1, 0, 1] },
-    { name: 'Daug', frets: [-1, -1, 0, 3, 3, 2] },
-    { name: 'Dsus2', frets: [-1, -1, 0, 2, 3, 0] },
-    { name: 'Dsus4', frets: [-1, -1, 0, 2, 3, 3] }
-  ];
-  const eChords = [
-    { name: 'E', frets: [0, 2, 2, 1, 0, 0] },
-    { name: 'Em', frets: [0, 2, 2, 0, 0, 0] },
-    { name: 'E7', frets: [0, 2, 0, 1, 0, 0] },
-    { name: 'Emaj7', frets: [0, 2, 1, 1, 0, 0] },
-    { name: 'Em7', frets: [0, 2, 0, 0, 0, 0] },
-    { name: 'Edim', frets: [0, 1, 2, 3, 2, 3] },
-    { name: 'Eaug', frets: [0, 3, 3, 2, 2, 0] },
-    { name: 'Esus2', frets: [0, 2, 2, 4, 0, 0] },
-    { name: 'Esus4', frets: [0, 2, 2, 2, 0, 0] }
-  ];
-  const aChords = [
-    { name: 'A', frets: [0, 0, 2, 2, 2, 0] },
-    { name: 'Am', frets: [0, 0, 2, 2, 1, 0] },
-    { name: 'A7', frets: [0, 0, 2, 0, 2, 0] },
-    { name: 'Amaj7', frets: [0, 0, 2, 1, 2, 0] },
-    { name: 'Am7', frets: [0, 0, 2, 0, 1, 0] },
-    { name: 'Adim', frets: [0, 1, 2, 3, 3, 3] },
-    { name: 'Aaug', frets: [1, 0, 3, 2, 2, 1] },
-    { name: 'Asus2', frets: [0, 0, 2, 2, 0, 0] },
-    { name: 'Asus4', frets: [0, 0, 2, 2, 3, 0] },
-    { name: 'Aadd9', frets: [0, 0, 2, 2, 0, 2] },
-    { name: 'A7sus4', frets: [0, 0, 2, 0, 3, 0] },
-    { name: 'A9', frets: [0, 0, 2, 0, 2, 3] },
-    { name: 'A13', frets: [0, 0, 2, 4, 2, 2] },
-    { name: 'A11', frets: [0, 0, 0, 2, 1, 0] },
-    { name: 'A7#9', frets: [0, 0, 2, 1, 3, 3] },
-    { name: 'A7b9', frets: [0, 0, 2, 1, 2, 3] }
-  ];
-  const gChords = [
-    { name: 'G', frets: [3, 2, 0, 0, 0, 3] },
-    { name: 'Gm', frets: [3, 5, 5, 3, 3, 3] },
-    { name: 'G7', frets: [3, 2, 0, 0, 0, 1] },
-    { name: 'Gmaj7', frets: [3, 2, 0, 0, 0, 2] },
-    { name: 'Gm7', frets: [3, 5, 3, 3, 3, 3] },
-    { name: 'Gdim', frets: [3, 4, 5, 3, 5, 3] },
-    { name: 'Gaug', frets: [3, 2, 1, 0, 0, 3] },
-    { name: 'Gsus2', frets: [3, 0, 0, 0, 0, 3] },
-    { name: 'Gsus4', frets: [3, 3, 0, 0, 1, 3] }
-  ];
-  const fChords = [
-    { name: 'F', frets: [1, 3, 3, 2, 1, 1] },
-    { name: 'Fm', frets: [1, 3, 3, 1, 1, 1] },
-    { name: 'F7', frets: [1, 3, 1, 2, 1, 1] },
-    { name: 'Fmaj7', frets: [1, 3, 2, 2, 1, 0] },
-    { name: 'Fm7', frets: [1, 3, 1, 1, 1, 1] },
-    { name: 'Fdim', frets: [1, -1, 0, 1, 0, 1] },
-    { name: 'Faug', frets: [1, 0, 3, 2, 2, 1] },
-    { name: 'Fsus2', frets: [1, 3, 3, 0, 1, 1] },
-    { name: 'Fsus4', frets: [1, 3, 3, 3, 1, 1] }
-  ];
-            
-    return (
-        <div className='flex flex-row w-auto'>
-            <ChordDisplay chord={cChords[0]} />
+  async function getData(chordName) {
+    const response = await axios.get(`https://api.uberchord.com/v1/chords/${chordName}`);
+    const f = [];
+    if (response.status === 200) {
+      try {
+        const data = response.data;
+        const fretsData = data[0]["strings"];
+        for (let i = 0; i < fretsData.length; i++) {
+          const val = fretsData[i];
+          if (val === ' ') continue;
+          if (val === 'X') {
+            f.push(-1);
+          } else {
+            f.push(Number(val));
+          }
+        }
+        // Use setChordList to update the chordList state
+        setChordList(prevChords => {
+          // Check if the chord already exists in chordList
+          const chordExists = prevChords.some(chord => chord.name === chordName);
+          // If chord doesn't exist, add it to the chordList
+          if (!chordExists) {
+            return [...prevChords, { name: chordName, frets: f }];
+          }
+          return prevChords;
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      await Promise.all(chordTypes.map((val) => getData(chordClass + val)));
+      setLoading(false);
+    }
+    fetchData();
+  }, [chordClass]);
+
+  return (
+    <div>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <div className='flex flex-row flex-wrap mt-20'>
+          {chordList.map((val, index) => (
+            <div className=''> 
+            <ChordDisplay key={index} chord={val} />
+            </div>
+          ))}
         </div>
-    );
+      )}
+    </div>
+  );
 }
