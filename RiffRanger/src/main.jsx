@@ -9,6 +9,7 @@ import Metronome from './Metronome/Metronome.jsx'
 import SoundGuessingGame from './ChordGuessingGame/SoundGuessingGame.jsx'
 import ChordLibrary from './ChordLibrary.jsx'
 import Glossary from './Glossary/Glossary.jsx'
+import Courses from './Courses/Courses.jsx'
 const router=createBrowserRouter([
   {
     path:"/",
@@ -28,6 +29,10 @@ const router=createBrowserRouter([
     {
       path:"tools/soundGuessingGame",
       element:<SoundGuessingGame/>
+    },
+    {
+      path:"courses",
+      element:<Courses/>
     },
     {
       path:"tools/chordLibrary",
