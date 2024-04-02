@@ -10,24 +10,6 @@ export default function Body() {
   const textToType = 'LEARN AND MASTER THE ART OF GUITAR';
   const textToType2 = 'Songs. Techniques. Rhythm. Games. Chords. Practice Tools. From Beginner to Advanced!'
 
-  // useEffect(() => {
-  //   const typingDelay = 50; // Adjust the delay between each character typing
-
-  //   const typeText = () => {
-  //     for (let i = 0; i <= textToType.length; i++) {
-  //       setTimeout(() => {
-  //         setTypedText(textToType.slice(0, i));
-  //         if (i === textToType.length) {
-  //           setShowSecondText(true); // Show the second text after the main text is fully typed
-  //         }
-  //       }, i * typingDelay);
-  //     }
-  //   };
-
-  //   typeText();
-
-  // }, []);
-
   return (
     <div className='Main float-left'>
 

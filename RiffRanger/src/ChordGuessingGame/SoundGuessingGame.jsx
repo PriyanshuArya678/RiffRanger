@@ -118,12 +118,13 @@ const chords = [
     const handleClick = () => {
       console.log('Random chord:', chords[choiceNums[randomNumber]].name);
     };
+    
   
     return (
-      <div className='flex flex-col justify-center items-center'>
+      <div className='flex flex-col justify-center items-center mt-40'>
         <div className=''>
         <div className='flex'>
-          <button className='text-black'onClick={handleClick}>Listen to this chord</button>
+          <button className='text-black text-3xl'onClick={handleClick}>Enhance your musical hearing by identifying chords</button>
           {randomNumber !== null && <GuitarChordSound chord={chords[choiceNums[randomNumber]].name} />}
         </div>
         <div>
