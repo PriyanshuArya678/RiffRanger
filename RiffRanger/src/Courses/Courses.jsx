@@ -1,5 +1,3 @@
-// CoursesWithModal.jsx
-
 import React, { useState } from 'react';
 import './Courses.css'; 
 
@@ -27,13 +25,12 @@ function Courses() {
       const closeModal = () => {
         setIsModalOpen(false);
       };
-    
       return (
-        <div className='mt-40 ml-20'>
-          <div className='py-10 flex flex-col justify-between items-start gap-10'>
+        <div className='mt-40 pr-40 pl-10'>
+          <div className='py-10 flex flex-col justify-between items-start'>
             <ul>
               <li>
-                <button onClick={() => toggleList('basics')} className='  bg-slate-400 hover:bg-red-500 h-10 w-'>LEARN THE BASICS</button>
+                <button onClick={() => toggleList('basics')} className='bg-slate-400 hover:bg-red-500 h-10 w-screen px-8'>LEARN THE BASICS</button>
                 {showList.basics && (
                   <ul>
                     <li onClick={() => openModal(<iframe width="560" height="315" src="https://www.youtube.com/embed/i8YLBufmWV4?si=N1AVcHJsRiT_bMbl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>)}>Topic1</li>
@@ -43,7 +40,7 @@ function Courses() {
                 )}
               </li>
               <li>
-                <button onClick={() => toggleList('intermediate')} className='bg-slate-400 hover:bg-red-500 h-10 w-40'>INTERMEDIATE</button>
+                <button onClick={() => toggleList('intermediate')} className='bg-slate-400 hover:bg-red-500 h-10 w-screen px-8 mt-4'>INTERMEDIATE</button>
                 {showList.intermediate && (
                   <ul>
                     <li onClick={() => openModal('Topic A')}>Topic A</li>
@@ -53,7 +50,7 @@ function Courses() {
                 )}
               </li>
               <li>
-                <button onClick={() => toggleList('expert')} className='bg-slate-400 hover:bg-red-500 h-10 w-40'>EXPERT</button>
+                <button onClick={() => toggleList('expert')} className='bg-slate-400 hover:bg-red-500 h-10 w-screen px-8 mt-4'>EXPERT</button>
                 {showList.expert && (
                   <ul>
                     <li onClick={() => openModal('Topic X')}>Topic X</li>
@@ -81,4 +78,3 @@ function Courses() {
 }
 
 export default Courses
-

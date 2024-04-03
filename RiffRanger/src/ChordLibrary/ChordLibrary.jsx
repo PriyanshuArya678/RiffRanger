@@ -2,7 +2,7 @@ import React from 'react'
 import ChordLibraryBox from './ChordLibraryBox'
 export default function ChordLibrary() {
   return (
-    <div className='flex flex-row flex-wrap justify-center mt'>
+    <div className='flex flex-row flex-wrap justify-center mt-24'>
       <ChordLibraryBox text="A"/>
       <ChordLibraryBox text="B"/>
       <ChordLibraryBox text="C"/>
