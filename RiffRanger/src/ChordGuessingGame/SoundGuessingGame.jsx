@@ -1,140 +1,100 @@
 import React, { useEffect, useState } from 'react';
 import GuitarChordSound from './GuitarChordSound';
-
+import { IoReloadCircle } from "react-icons/io5";
+// const chords = [
+//   'A', 'Am', 'A7', 'Am7', 'Amaj7', 'Adim', 'Aaug', 'Asus2', 'Asus4',
+//   'B', 'Bm', 'B7', 'Bm7', 'Bmaj7', 'Bdim', 'Baug', 'Bsus2', 'Bsus4',
+//   'C', 'Cm', 'C7', 'Cm7', 'Cmaj7', 'Cdim', 'Caug', 'Csus2', 'Csus4',
+//   'D', 'Dm', 'D7', 'Dm7', 'Dmaj7', 'Ddim', 'Daug', 'Dsus2', 'Dsus4',
+//   'E', 'Em', 'E7', 'Em7', 'Emaj7', 'Edim', 'Eaug', 'Esus2', 'Esus4',
+//   'F', 'Fm', 'F7', 'Fm7', 'Fmaj7', 'Fdim', 'Faug', 'Fsus2', 'Fsus4',
+//   'G', 'Gm', 'G7', 'Gm7', 'Gmaj7', 'Gdim', 'Gaug', 'Gsus2', 'Gsus4'
+// ];
 const chords = [
-  { name: 'A', type: 'Major' },
-  { name: 'B', type: 'Major' },
-  { name: 'C', type: 'Major' },
-  { name: 'D', type: 'Major' },
-  { name: 'E', type: 'Major' },
-  { name: 'F', type: 'Major' },
-  { name: 'G', type: 'Major' },
-  { name: 'Am', type: 'Minor' },
-  { name: 'Bm', type: 'Minor' },
-  { name: 'Cm', type: 'Minor' },
-  { name: 'Dm', type: 'Minor' },
-  { name: 'Em', type: 'Minor' },
-  { name: 'Fm', type: 'Minor' },
-  { name: 'Gm', type: 'Minor' },
-  { name: 'A7', type: 'Dominant Seventh' },
-  { name: 'B7', type: 'Dominant Seventh' },
-  { name: 'C7', type: 'Dominant Seventh' },
-  { name: 'D7', type: 'Dominant Seventh' },
-  { name: 'E7', type: 'Dominant Seventh' },
-  { name: 'F7', type: 'Dominant Seventh' },
-  { name: 'G7', type: 'Dominant Seventh' },
-  { name: 'Amaj7', type: 'Major Seventh' },
-  { name: 'Bmaj7', type: 'Major Seventh' },
-  { name: 'Cmaj7', type: 'Major Seventh' },
-  { name: 'Dmaj7', type: 'Major Seventh' },
-  { name: 'Emaj7', type: 'Major Seventh' },
-  { name: 'Fmaj7', type: 'Major Seventh' },
-  { name: 'Gmaj7', type: 'Major Seventh' },
-  { name: 'Am7', type: 'Minor Seventh' },
-  { name: 'Bm7', type: 'Minor Seventh' },
-  { name: 'Cm7', type: 'Minor Seventh' },
-  { name: 'Dm7', type: 'Minor Seventh' },
-  { name: 'Em7', type: 'Minor Seventh' },
-  { name: 'Fm7', type: 'Minor Seventh' },
-  { name: 'Gm7', type: 'Minor Seventh' },
-  { name: 'Adim', type: 'Diminished' },
-  { name: 'Bdim', type: 'Diminished' },
-  { name: 'Cdim', type: 'Diminished' },
-  { name: 'Ddim', type: 'Diminished' },
-  { name: 'Edim', type: 'Diminished' },
-  { name: 'Fdim', type: 'Diminished' },
-  { name: 'Gdim', type: 'Diminished' },
-  { name: 'Aaug', type: 'Augmented' },
-  { name: 'Baug', type: 'Augmented' },
-  { name: 'Caug', type: 'Augmented' },
-  { name: 'Daug', type: 'Augmented' },
-  { name: 'Eaug', type: 'Augmented' },
-  { name: 'Faug', type: 'Augmented' },
-  { name: 'Gaug', type: 'Augmented' },
-  { name: 'Asus2', type: 'Suspended 2nd' },
-  { name: 'Asus4', type: 'Suspended 4th' },
-  { name: 'Bsus2', type: 'Suspended 2nd' },
-  { name: 'Bsus4', type: 'Suspended 4th' },
-  { name: 'Csus2', type: 'Suspended 2nd' },
-  { name: 'Csus4', type: 'Suspended 4th' },
-  { name: 'Dsus2', type: 'Suspended 2nd' },
-  { name: 'Dsus4', type: 'Suspended 4th' },
-  { name: 'Esus2', type: 'Suspended 2nd' },
-  { name: 'Esus4', type: 'Suspended 4th' },
-  { name: 'Fsus2', type: 'Suspended 2nd' },
-  { name: 'Fsus4', type: 'Suspended 4th' },
-  { name: 'Gsus2', type: 'Suspended 2nd' },
-  { name: 'Gsus4', type: 'Suspended 4th' },
-  { name: 'Aadd9', type: 'Add9' },
-  { name: 'A7sus4', type: 'Dominant 7th Suspended 4th' },
-  { name: 'A9', type: 'Dominant Ninth' },
-  { name: 'A13', type: 'Dominant 13th' },
-  { name: 'A11', type: 'Dominant 11th' },
-  { name: 'A7#9', type: 'Dominant 7th Sharp Ninth' },
-  { name: 'A7b9', type: 'Dominant 7th Flat Ninth' },
-  { name: 'Bb', type: 'Major' },
-  { name: 'Bbm', type: 'Minor' },
-  { name: 'Bb7', type: 'Dominant Seventh' },
-  { name: 'Bbmaj7', type: 'Major Seventh' },
-  { name: 'Bbm7', type: 'Minor Seventh' },
-  { name: 'Bbdim', type: 'Diminished' },
-  { name: 'Bbaug', type: 'Augmented' },
-  { name: 'Bbsus2', type: 'Suspended 2nd' },
-  { name: 'Bbsus4', type: 'Suspended 4th' },
-  { name: 'Bbadd9', type: 'Add9' },
-  { name: 'Bb7sus4', type: 'Dominant 7th Suspended 4th' },
-  { name: 'Bb9', type: 'Dominant Ninth' },
-  { name: 'Bb13', type: 'Dominant 13th' },
-  { name: 'Bb11', type: 'Dominant 11th' },
-  { name: 'Bb7#9', type: 'Dominant 7th Sharp Ninth' },
-  { name: 'Bb7b9', type: 'Dominant 7th Flat Ninth' },
-  { name: 'Db', type: 'Major' },
-  { name: 'Dbm', type: 'Minor' },
-  { name: 'Db7', type: 'Dominant Seventh' },
-  { name: 'Dbmaj7', type: 'Major Seventh' },
-  { name: 'Dbm7', type: 'Minor Seventh' }];
+  'A', 'Am',
+  'B', 'Bm',
+  'C', 'Cm',
+  'D', 'Dm',
+  'E', 'Em',
+  'F', 'Fm',
+  'G', 'Gm',
+];
 
-  export default function SoundGuessingGame() {
-    const [randomNumber, setRandomNumber] = useState(null);
-    const [choiceNums, setChoiceNums] = useState([]);
-  
-    const generateRandomNumbers = () => {
-      const randomNums = [];
-      while (randomNums.length < 3) {
-        const num = Math.floor(Math.random() * chords.length);
-        if (!randomNums.includes(num)) {
-          randomNums.push(num);
-        }
+const SoundGuessingGame = () => {
+  const [randomNumber, setRandomNumber] = useState(null);
+  const [choiceNums, setChoiceNums] = useState([]);
+  const [countCorrect,setCountCorrect]=useState(0)
+  const [reload,setReload]=useState(false)
+  var [count,setCount]=useState(0)
+  const [displayResult,setDisplayResult]=useState(false)
+  const generateRandomNumbers = () => {
+    const randomNums = [];
+    while (randomNums.length < 3) {
+      const num = Math.floor(Math.random() * chords.length);
+      if (!randomNums.includes(num)) {
+        randomNums.push(num);
       }
-      return randomNums;
-    };
-  
-    useEffect(() => {
-      const randomNums = generateRandomNumbers();
-      setChoiceNums(randomNums);
-      setRandomNumber(Math.floor(Math.random() * randomNums.length));
-    }, []);
-  
-    const handleClick = () => {
-      console.log('Random chord:', chords[choiceNums[randomNumber]].name);
-    };
-    
-  
-    return (
-      <div className='flex flex-col justify-center items-center mt-40'>
-        <div className=''>
-        <div className='flex'>
-          <button className='text-black text-3xl'onClick={handleClick}>Enhance your musical hearing by identifying chords</button>
-          {randomNumber !== null && <GuitarChordSound chord={chords[choiceNums[randomNumber]].name} />}
-        </div>
+    }
+    return randomNums;
+  };
+
+  useEffect(() => {
+    const randomNums = generateRandomNumbers();
+    setChoiceNums(randomNums);
+    setRandomNumber(Math.floor(Math.random() * randomNums.length));
+  }, [reload]);
+
+  const handleClick = () => {
+    console.log('Random chord:', chords[choiceNums[randomNumber]]);
+  };
+  const checkAnswer=(val)=>{
+    if(chords[val]==chords[choiceNums[randomNumber]]){
+      setCountCorrect(prevCheck=>prevCheck+1)
+    }
+    if(count<10){
+      count++
+      setCount(count)
+    }else{ 
+      setDisplayResult(true)
+    }
+    setReload(!reload)
+  }
+  return (
+    <div>
+      {
+        displayResult?
         <div>
-          <div className='flex flex-row space-x-4 text-white    '>
-            {choiceNums.map((val, index) => (
-              <button className='bg-gray-900' key={index}>{chords[val].name}</button>
-            ))}
+          <div className='flex flex-row justify-center mt-48 items-center'>
+            <div className='text-red-600 text-4xl font-bold mx-4'>{countCorrect}/{count}</div>
+            <div className='font-bold text-3xl'>You got {countCorrect} correct answers out of {count}!!</div>
+          </div>
+          <div className='flex flex-row justify-center font-bold text-3xl mt-7 items-center'>
+            <div>Wanna play again</div>
+            <IoReloadCircle onClick={()=>{
+              setCount(0)
+              setReload(false)
+              setCountCorrect(0)
+              setDisplayResult(false)
+              
+            }}/>
           </div>
         </div>
-        </div>
+        :
+        <div className='flex flex-col justify-center items-center mt-40 mx-10'>
+      <div className='text-2xl font-bold mb-4 cursor-pointer' onClick={handleClick}>Enhance your musical hearing by identifying chords</div>
+      <div className='text-xl font-bold mb-4'>Click on the play button and Identify the chord from the given options</div>
+      <div>{randomNumber !== null && <GuitarChordSound chord={chords[choiceNums[randomNumber]]} />}</div>
+      <div className='flex flex-row space-x-4 text-white'>
+        {choiceNums.map((val, index) => (
+          <button onClick={()=>{checkAnswer(val)}} className='bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded' key={index}>{chords[val]}</button>
+        ))}
       </div>
-    );
-  }
+      <div className='font-bold m-6'>{count}/10</div>
+    </div>
+      }
+    </div>
+    
+  );
+};
+
+export default SoundGuessingGame;
