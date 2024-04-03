@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useHistory } from 'react';
 import { MdOutlineMenu } from 'react-icons/md';
 import './NavBar.css';
 import { FaBars } from "react-icons/fa";
@@ -17,11 +17,10 @@ const closeDropDown = () => {
   setisDropDownOpen(false);
 }
   return (
-    <div className='shadow-md text-xl mt-2 flex justify-between fixed top-0 w-full p-2 z-10'>
+    <div className='shadow-md text-xl mt-2 flex justify-between fixed top-0 absolute w-full p-2 '>
       <div className='text-3xl ml-4 mt-2 font-bold items-center'>
-        <img src='' className='w-6' alt='' /> RiffRanger
+        <button>RiffRanger</button> 
       </div>
-      
       <div className='navbar-items mt-2 '>
       <ul className={`text-2xl gap-6 flex justify-center items-center ${isClicked ? 'navbar-items active ' : 'navbar-items'}`}>
           <Link to={`courses`}>COURSES</Link>
