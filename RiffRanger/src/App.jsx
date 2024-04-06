@@ -1,8 +1,9 @@
+import { useEffect } from 'react';
 import Body from './MainPage/Body';
 import NavBar from './NavBar';
 import { Outlet } from 'react-router-dom';
-function App() {
 
+function App() {
   return (
     <div >
       <NavBar/>

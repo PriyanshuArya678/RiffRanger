@@ -46,7 +46,7 @@ Link:hover{
 }
 
 .login-btn:hover {
-  background-color: #1953a3; /* Set your hover color */
+  background-color: #19a38c; /* Set your hover color */
 }
 .icons{
 display: none;
@@ -69,10 +69,12 @@ cursor:pointer;
     top:70px;
     right:-300px;
     width:300px;
-    height:70vh;
-    padding: 90px;
-    width: 24px;
-    background-color: skyblue;
+    height:80vh;
+    padding:110px;
+    width: 4px;
+    background-color: rgb(53, 56, 72);
+    border-radius:20px;
+    color:white;
   }
   .navbar-items li 
   {
@@ -80,14 +82,25 @@ cursor:pointer;
   }
   .login-button{
     display:none;
-    visibility: hidden;
   }
   .icons{
     display: block;
   }
   .navbar-items.active{
     right:0px;
+    animation: forwards;
+    animation-duration: 1s;
   }
+  
+  .navbar-items .main-links:hover{
+    color:black;
+  }
+  .relative:hover{
+    color:black;
+  }
+
+  
+  
  
 
 }
