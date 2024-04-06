@@ -4,8 +4,6 @@
  margin-bottom: 10px;
  font-weight: 400;
  padding-right:10px;
- 
- 
 }
 .navbar-items li a {
   transition :0.1s ease-in-out;
@@ -13,20 +11,6 @@
 Link:hover{
   color:#17cf97;
 }
-Link:hover{
-  color:#17cf97;
-}
-.navbar-items li a hover::after,navbar li a  active::after{
-  content:" ";
-  width:30%;
-  height:2px;
-  background:#17cf97; 
-  position: absolute;
-  bottom:-4px;
-  left:20px;
-}
-
-
 
 
 .login-button {
@@ -35,13 +19,11 @@ Link:hover{
 }
 
 .login-btn {
-  background-color: white; /* Set your login button color */
-  color: black; /* Set your login button text color */
+   /* Set your login button text color */
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease;
   justify-content: space-between;
 }
 

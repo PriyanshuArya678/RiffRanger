@@ -7,21 +7,22 @@ export default function Body() {
   const [typedText, setTypedText] = useState('');
   const [showSecondText, setShowSecondText] = useState(false);
 
-  const textToType = 'LEARN AND MASTER THE ART OF GUITAR';
-  const textToType2 = 'Songs. Techniques. Rhythm. Games. Chords. Practice Tools. From Beginner to Advanced!'
-
+  
   return (
     <div className='Main float-left'>
 
       <div className="flex flex-row-reverse justify-between items-center w-full">
         <img src={mainImage} alt="" className="mt-38 py-20 " />
         <div className='ml-10 pt-16'>
-        <div className="main-text text-black  text-6xl font-semibold">
-          {textToType}
+          <div className='md:w-1/2 text-center'>
+          <div className="main-text text-black text-6xl font-semibold">
+          LEARN AND MASTER THE ART OF GUITAR
         </div>
         <div className='mt-10 text-2xl'>
-        {textToType2}
+        Songs. Techniques. Rhythm. Games. Chords. Practice Tools. From Beginner to Advanced!
       </div>
+          </div>
+       
         </div>
 
         
