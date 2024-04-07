@@ -10,6 +10,7 @@ import ChordLibrary from './ChordLibrary/ChordLibrary.jsx';
 import Glossary from './Glossary/Glossary.jsx';
 import Courses from './Courses/Courses.jsx';
 import ChordClass from './ChordLibrary/ChordClass.jsx';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -22,8 +23,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="tools/chordLibrary" element={<ChordLibrary />} />
           <Route path="tools/glossary" element={<Glossary />} />
           <Route path="tools/chordLibrary/:chordClass" element={<ChordClass />} />
-          {/* <Route path="Form/Login" element = {<Login/>}/>
-          <Route path="Form/SignUp" elemtent ={<SingUp/>}/> */}
         </Route>
       </Routes>
     </BrowserRouter>

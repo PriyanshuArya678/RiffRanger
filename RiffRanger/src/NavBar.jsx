@@ -34,7 +34,6 @@ const closeDropDown = () => {
           <Link to={`tools/chordLibrary`} className='block px-4 py-2 hover:bg-gray-100 border-b border-gray-200'>Chord Library</Link>
           <Link to={`tools/glossary`} className='block px-4 py-2 hover:bg-gray-100'>Glossary</Link>
         </div>
-        
       )}
     </li>
     <li className="main-links"><Link to={`store`}>STORE</Link></li>
