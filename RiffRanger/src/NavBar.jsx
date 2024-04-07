@@ -40,7 +40,7 @@ const closeDropDown = () => {
     <li className="main-links"><Link to={`store`}>STORE</Link></li>
     <li className="main-links"><Link to={`explore`}>EXPLORE</Link></li>
     {window.innerWidth<970 &&( <li><button className='login-btn md:hidden bg-gradient-to-r w-40 from-primary to-secondary hover:from-secondary hover:to-primary text-white'>
-          LOG IN
+    <Link to ={`Login`}>LOG IN</Link> 
         </button></li>)}
    
    
@@ -50,7 +50,8 @@ const closeDropDown = () => {
 
       <div className='login-button gap-6 mt-2 mr-4'>
         <button className='login-btn bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white'>
-          LOG IN
+
+         <Link to ={`Login`}>LOG IN</Link> 
         </button>
       </div>
       <div className='icons mt-2'>

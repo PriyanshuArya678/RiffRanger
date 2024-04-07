@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import metronomeSound from'../assets/Audio/metronom.mp3'
 import './Meteronome.css'
+import animation from '../Lotties/animation.json'
 function Metronome() {
     const [isRunning ,setIsRunning]=useState(false);
     const [timebetweenBeats,settimebetweenBeats]=useState(1000);

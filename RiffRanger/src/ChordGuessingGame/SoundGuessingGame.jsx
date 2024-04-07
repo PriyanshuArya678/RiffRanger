@@ -1,23 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import GuitarChordSound from './GuitarChordSound';
 import { IoReloadCircle } from "react-icons/io5";
-// const chords = [
-//   'A', 'Am', 'A7', 'Am7', 'Amaj7', 'Adim', 'Aaug', 'Asus2', 'Asus4',
-//   'B', 'Bm', 'B7', 'Bm7', 'Bmaj7', 'Bdim', 'Baug', 'Bsus2', 'Bsus4',
-//   'C', 'Cm', 'C7', 'Cm7', 'Cmaj7', 'Cdim', 'Caug', 'Csus2', 'Csus4',
-//   'D', 'Dm', 'D7', 'Dm7', 'Dmaj7', 'Ddim', 'Daug', 'Dsus2', 'Dsus4',
-//   'E', 'Em', 'E7', 'Em7', 'Emaj7', 'Edim', 'Eaug', 'Esus2', 'Esus4',
-//   'F', 'Fm', 'F7', 'Fm7', 'Fmaj7', 'Fdim', 'Faug', 'Fsus2', 'Fsus4',
-//   'G', 'Gm', 'G7', 'Gm7', 'Gmaj7', 'Gdim', 'Gaug', 'Gsus2', 'Gsus4'
-// ];
 const chords = [
-  'A', 'Am',
-  'B', 'Bm',
-  'C', 'Cm',
-  'D', 'Dm',
-  'E', 'Em',
-  'F', 'Fm',
-  'G', 'Gm',
+  'A', 'Am', 'A7', 'Am7', 'Amaj7', 'Adim', 'Aaug', 'Asus2', 'Asus4',
+  'B', 'Bm', 'B7', 'Bm7', 'Bmaj7', 'Bdim', 'Baug', 'Bsus2', 'Bsus4',
+  'C', 'Cm', 'C7', 'Cm7', 'Cmaj7', 'Cdim', 'Caug', 'Csus2', 'Csus4',
+  'D', 'Dm', 'D7', 'Dm7', 'Dmaj7', 'Ddim', 'Daug', 'Dsus2', 'Dsus4',
+  'E', 'Em', 'E7', 'Em7', 'Emaj7', 'Edim', 'Eaug', 'Esus2', 'Esus4',
+  'F', 'Fm', 'F7', 'Fm7', 'Fmaj7', 'Fdim', 'Faug', 'Fsus2', 'Fsus4',
+  'G', 'Gm', 'G7', 'Gm7', 'Gmaj7', 'Gdim', 'Gaug', 'Gsus2', 'Gsus4'
 ];
 
 const SoundGuessingGame = () => {

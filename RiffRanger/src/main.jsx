@@ -1,32 +1,59 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './App.jsx';
-import './index.css';
-import Body from './MainPage/Body.jsx';
-import Metronome from './Metronome/Metronome.jsx';
-import SoundGuessingGame from './ChordGuessingGame/SoundGuessingGame.jsx';
-import ChordLibrary from './ChordLibrary/ChordLibrary.jsx';
-import Glossary from './Glossary/Glossary.jsx';
-import Courses from './Courses/Courses.jsx';
-import ChordClass from './ChordLibrary/ChordClass.jsx';
-
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import Body from './MainPage/Body.jsx'
+import Metronome from './Metronome/Metronome.jsx'
+import SoundGuessingGame from './ChordGuessingGame/SoundGuessingGame.jsx'
+import ChordLibrary from './ChordLibrary/ChordLibrary.jsx'
+import Glossary from './Glossary/Glossary.jsx'
+import Courses from './Courses/Courses.jsx'
+import ChordClass from './ChordLibrary/ChordClass.jsx'
+import Login from './Form/Login.jsx'
+import SignUp from './Form/SignUp.jsx'
+const router=createBrowserRouter([
+  {
+    path:"/",
+    element:<App/>,
+    children:[{
+      path:"",
+      element:<Body/>
+    },
+    {
+      path:"tools/metronome",
+      element:<Metronome/>
+    },
+    {
+      path:"tools/soundGuessingGame",
+      element:<SoundGuessingGame/>
+    },
+    {
+      path:"courses",
+      element:<Courses/>
+    },
+    {
+      path:"tools/chordLibrary",
+      element:<ChordLibrary/>,
+    },
+    {
+      path:"tools/glossary",
+      element:<Glossary/>
+    },{
+      path:"tools/chordLibrary/:chordClass",
+      element:<ChordClass/>
+    },{
+      path:"Login",
+      element:<Login/>
+    },{
+      path:"SignUp",
+      element:<SignUp/>
+    }
+  ]
+  }
+])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Body />} />
-          <Route path="tools/metronome" element={<Metronome />} />
-          <Route path="tools/soundGuessingGame" element={<SoundGuessingGame />} />
-          <Route path="courses" element={<Courses />} />
-          <Route path="tools/chordLibrary" element={<ChordLibrary />} />
-          <Route path="tools/glossary" element={<Glossary />} />
-          <Route path="tools/chordLibrary/:chordClass" element={<ChordClass />} />
-          {/* <Route path="Form/Login" element = {<Login/>}/>
-          <Route path="Form/SignUp" elemtent ={<SingUp/>}/> */}
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={router}/>
   </React.StrictMode>,
-);
+)
