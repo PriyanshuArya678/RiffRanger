@@ -2,7 +2,7 @@ import React from 'react'
 
 function Glossary_Box({alphabet,musicTerms}) {
     const fetchMeaning=(term)=>{
-        fetch(`http://localhost:4000/musicTerm/${term}`)
+        fetch(`http://localhost:3000/musicTerm/${term}`)
         .then((response) => {
             // Check if the response is successful
             if (!response.ok) {

@@ -8,9 +8,8 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    axios.post('http://localhost:3000/Login',{email:email,password,password})
     // Implement your login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
   };
 
   return (
