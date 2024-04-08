@@ -12,6 +12,19 @@ function SignUp() {
       'http://localhost:3001/SingUp',{name,email,password})
     .then(result =>console.log(result))
     .catch(err=>console.log(err))
+
+    if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+    if (password.length < 6) {
+      alert('Password must be at least 6 characters long');
+      return;
+    }
+    if (!/^[a-zA-Z\s]*$/.test(name)) {
+      alert('Please enter a valid name');
+      return;
+    }
   };
 
   return (

@@ -9,8 +9,22 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     // Implement your login logic here
+    console.log("handling error...")
     console.log('Email:', email);
     console.log('Password:', password);
+    
+  
+    // Check password length
+    
+    if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+    if (password.length < 6) {
+      alert('Password must be at least 6 characters long');
+      return;
+    }
+  
   };
 
   return (
