@@ -9,10 +9,9 @@ body{
 
 }
 .Main{
-  background:white;
+  background:hsl(228, 53%, 2%);
+  color:white;
   height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /* :root {b

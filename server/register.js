@@ -11,20 +11,20 @@ export async function register(req, res, next) {
             email: email,
             password: password
         });
-        const token=await jwt.sign({userId:details._id},process.env.SECRET_KEY,{
-            expiresIn:2*24*60*60
-        })
+        
+        const token=await jwt.sign({userId:details._id},process.env.SECRET_KEY)
         try {
-            res.cookie('jwt',token,{
-                maxAge:2*24*60*60,
-                secure:true
+            res.cookie("jwt",token,{
+                httpOnly:false,
+                sameSite: 'lax', 
+                domain:'localhost',
+                path:'/'
             })
-            console.log(token)
         } catch (error) {
             console.log(error)
         }
         
-        res.status(201).json({message:'user successfully created'})
+        res.status(201).json({message:'user successfully created',email:email,name:name})
     } catch (error) {
         console.log(error);
         res.status(500).json({message:"Could not Register,try again"})

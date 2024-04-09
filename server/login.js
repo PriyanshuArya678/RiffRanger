@@ -5,8 +5,10 @@ export async function login(req, res, next) {
 
     try {
         const userDetails = await DetailsModel.find({ email: email, password: password });
+        console.log(userDetails)
         if(userDetails.length >0){
-            console.log('logged in ')
+            console.log('logged in')
+            res.status(200).json({message:'successfully logged in'})
             console.log(userDetails); 
         }
         else console.log('not registered')

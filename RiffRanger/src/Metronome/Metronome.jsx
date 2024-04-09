@@ -43,10 +43,10 @@ function Metronome() {
     }
   return (
     
-    
-   <div>
-     <div className="container mx-auto h-screen flex flex-col justify-center items-center relative">
-     <h1 className="text-4xl mb-4 mt-20 absolute top-20 font-extrabold bg-black text-white w-50 h-20 px-5  flex flex-col justify-center items-center">METRONOME</h1>
+    // <h1>Hello</h1>
+   <div className='bg-color1 '>
+     <div className="container mx-auto h-screen flex flex-col justify-center items-center relative mt-40 ">
+     <h1 className="text-4xl mb-4 mt-20 absolute top-20 font-extrabold bg-black text-white w-50 h-20 px-5 flex flex-col justify-center items-center">METRONOME</h1>
         
          
         <div className=' flex flex-row'>
