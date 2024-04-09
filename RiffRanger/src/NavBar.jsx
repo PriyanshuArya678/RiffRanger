@@ -1,9 +1,10 @@
-import React, { useState,useHistory } from 'react';
+import React, { useState,useEffect } from 'react';
 import { MdOutlineMenu } from 'react-icons/md';
 import './NavBar.css';
 import { FaBars } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 export default function NavBar() {
 const [isClicked, setClicked] = useState(false);
 const [isDropDownOpen,setisDropDownOpen]=useState(false)
@@ -16,6 +17,25 @@ const toggleDropDown = () => {
 const closeDropDown = () => {
   setisDropDownOpen(false);
 }
+const [loggedIn,setLoggedIn]=useState(false)
+useEffect(()=>{
+  const token=document.cookie.slice(4)
+  console.log(token)
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  };
+  async function getAuth(){
+    if(token){
+      const response=await axios.post('http://localhost:3000/Auth',{
+      Headers: headers
+      })
+      console.log(response)
+      if(response.status==200){setLoggedIn(true)}
+    }
+  }
+  getAuth()
+},[])
   return (
     <div className='shadow-md text-xl mt-2 flex justify-between fixed top-0 absolute w-full p-2 '>
       <div className='text-3xl ml-4 mt-2 font-bold items-center'>
@@ -50,7 +70,7 @@ const closeDropDown = () => {
       <div className='login-button gap-6 mt-2 mr-4'>
         <button className='login-btn bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white'>
 
-         <Link to ={`Login`}>LOG IN</Link> 
+         <Link to ={`Login`}>LOG IN</Link>:
         </button>
       </div>
       <div className='icons mt-2'>

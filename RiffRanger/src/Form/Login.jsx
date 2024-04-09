@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'; // Import Link component
-
+import {useNavigate} from 'react-router-dom'
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleLogin = (e) => {
+  const navigate=useNavigate()
+  const handleLogin = async(e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/Login',{email:email,password,password})
-    // Implement your login logic here
+    const res=await axios.post('http://localhost:3000/Login',{email:email,password,password})
+    if(res.status==200)navigate("/")
   };
 
   return (

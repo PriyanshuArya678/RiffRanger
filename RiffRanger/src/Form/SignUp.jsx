@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-
-
-  const handleSignUp = (e) => {
+  const navigate =useNavigate()
+  const handleSignUp = async(e) => {
     e.preventDefault();
-    axios.post(
-      'http://localhost:3000/SignUp',{name,email,password})
-    .then(result =>console.log(result))
-    .catch(err=>console.log('err'))
+    try {
+      const res=await axios.post(
+        'http://localhost:3000/SignUp',
+        { name, email, password },
+        { withCredentials: true }
+      );
+      console.log('Signup successful');
+      console.log(document.cookie)
+      if(res.status==201){
+        navigate('/');
+      }
+    } catch (error) {
+      console.error('Signup failed:', error);
+    }
   };
 
   return (
