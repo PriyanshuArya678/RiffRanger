@@ -14,12 +14,6 @@ img{
     }
   }
   
-  .typing-text::after {
-    content: '|' black;
-    display: inline-block;
-    width: 0;
-    animation: typing 3s steps(30) infinite;
-  }
 
   @media screen and (max-width: 970px) {
     .Main {
@@ -31,19 +25,7 @@ img{
     .main-text {
       /* Add any specific styling for the main text on smaller screens */
       /* For example: font-size: smaller; */
-      position: absolute;
-      bottom:500px;
-      justify-content: center;
       font-size: 1rem;
-      text-align:center;
       margin-left:120px
-    }
-    
-    img {
-      /* Adjust the height of the image for smaller screens */
-      height: auto; /* or specify a reasonable height */
-      width: auto; /* or specify a reasonable width */
-      max-width: 100%; /* Ensure the image does not overflow its container */
-      max-height: 100%; /* Ensure the image does not overflow its container */
     }
   }

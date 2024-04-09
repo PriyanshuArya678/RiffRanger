@@ -1,11 +1,11 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const DetailsSchema = new mongoose.Schema({
-    name: String,
+    name:String,
     email: String,
     password: String,
 });
 
-const DetailsModel = mongoose.model("Detail", DetailsSchema);
+const DetailsModel = mongoose.model('Detail', DetailsSchema);
 
 export default DetailsModel;

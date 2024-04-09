@@ -8,6 +8,7 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    axios.post('http://localhost:3000/Login',{email:email,password,password})
     // Implement your login logic here
     console.log("handling error...")
     console.log('Email:', email);
@@ -28,11 +29,12 @@ function Login() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-8 border rounded-lg shadow-lg mt-40">
-      <h2 className="text-xl font-bold mb-4">Login</h2>
+    <div className='bg-black font-semibold'>
+      <div className="max-w-md mx-auto p-8 border rounded-lg shadow-lg mt-40">
+      <h2 className="text-xl font-bold mb-4 text-white">Login</h2>
       <form onSubmit={handleLogin}>
         <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Email:</label>
+          <label className="block mb-2 text-white">Email:</label>
           <input
             type="email"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
@@ -41,7 +43,7 @@ function Login() {
           />
         </div>
         <div className="mb-6">
-          <label className="block text-gray-700 mb-2">Password:</label>
+          <label className="block mb-2 text-white">Password:</label>
           <input
             type="password"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
@@ -56,12 +58,13 @@ function Login() {
         </button>
       </form>
       {/* Link to SignUp page */}
-      <p className="text-center">
+      <p className="text-center text-white">
         Don't have an account?{' '}
         <Link to="/SignUp" className="text-blue-500 hover:underline">
           Sign Up
         </Link>
       </p>
+    </div>
     </div>
   );
 }

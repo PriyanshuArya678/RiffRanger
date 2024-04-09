@@ -10,8 +10,9 @@ export default {
       colors:{
         'navy': "#265073",
         'light-green':'#9AD0C2',
-        primary:"#5bc5a9",
-        secondary:"#348080",
+        primary:"#300979",
+        secondary:"#cd00ff",
+        color1:"hsl(228, 53%, 2%)"
       },
       keyframes: {
         typing: {

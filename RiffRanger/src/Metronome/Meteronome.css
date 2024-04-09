@@ -35,9 +35,9 @@ body{
 
 }
 .selectBtn{
-    height:28px;
+    height:26px;
     width:28px;
-    background-color:black;
+    background-color:white;
     border-radius:50%;
     position:absolute;
     background-position:center;
@@ -57,8 +57,8 @@ body{
 #selectValue::after{
     content:'';
     border-top:17px solid aquamarine;
-    border-left:17.5px solid white;
-    border-right:18.5px solid white;
+    border-left:17.5px solid black;
+    border-right:18.5px solid black;
     position:absolute;
     bottom:4rem;
     left:0;
