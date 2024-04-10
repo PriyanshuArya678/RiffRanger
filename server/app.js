@@ -3,10 +3,14 @@ import cors from 'cors';
 import { connectDb } from './connectDb.js';
 import { login } from './login.js';
 import { register } from './register.js';
+import { auth } from './auth.js';
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173', // Replace your_client_port with the port where your client is running
+    credentials: true // Allow cookies to be sent from the client to the server
+  }));
 app.use(express.json());
-
+app.post('/Auth',auth,(req,res)=>{})
 app.post('/SignUp', register, (req, res) => {});
 app.post('/Login', login, (req, res) => {});
 

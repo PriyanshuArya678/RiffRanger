@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import {login,logout} from '../Store/userStatusSlice';
 function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-
-
-  const handleSignUp = (e) => {
+  const navigate =useNavigate()
+  const dispatch =useDispatch()
+  const handleSignUp = async(e) => {
     e.preventDefault();
-    axios.post(
-      'http://localhost:3000/SignUp',{name,email,password})
-    .then(result =>console.log(result))
-    .catch(err=>console.log(err))
-
     if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
       alert('Please enter a valid email address');
       return;
@@ -25,8 +23,25 @@ function SignUp() {
       alert('Please enter a valid name');
       return;
     }
+    try {
+      const res=await axios.post(
+        'http://localhost:3000/SignUp',
+        { name, email, password },
+        { withCredentials: true }
+      );
+      console.log('Signup successful');
+      console.log(document.cookie)
+      if(res.status==201){
+        dispatch(login({userEmail:email,userName:name}))
+        navigate('/');
+      }else userStatusSlice(logout())
+    } catch (error) {
+      dispatch(logout())
+      console.error('Signup failed:', error);
+    }
     
   };
+  
 
   return (
     <div className='bg-black'>

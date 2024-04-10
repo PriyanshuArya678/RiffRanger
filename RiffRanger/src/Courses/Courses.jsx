@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Courses.css'; 
-
+import axios from 'axios';
 function Courses() {
       const majorTopics = [
         {
@@ -86,7 +86,8 @@ function Courses() {
           ]
         }
       ];
-      const [expanded, setExpanded] = useState(null);
+  const [loggedIn,setLoggedIn]=useState(false)
+  const [expanded, setExpanded] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
   function expandTopic(majorTopic) {
@@ -100,37 +101,41 @@ function Courses() {
   function closeModal() {
     setModalOpen(false);
   }
-
   return (
-    <div className='bg-black'>
-      <div className='m-40 flex flex-col'>
-      {majorTopics.map((val, index) => (
-        <div key={index} className='flex flex-col'>
-          <button onClick={() => expandTopic(val.majorTopics)} className='text-white mt-3 bg-gradient-to-r from-primary to-secondary py-2'>
-            {val.majorTopics}
-          </button>
-          {expanded === val.majorTopics && (
-            <div>
-              <div className='flex flex-col'>
-                {val.subTopics.map((subTopic, subIndex) => (
-                  <button onClick={openModal} className='text-white bg-[#605470] py-2' key={subIndex}>{subTopic}</button>
-                ))}
+    <div>
+      {
+        !loggedIn?
+        <div>Login Again</div>
+        :
+        <div className='m-40 flex flex-col'>
+        {majorTopics.map((val, index) => (
+          <div key={index} className='flex flex-col'>
+            <button onClick={() => expandTopic(val.majorTopics)} className='text-white mt-3 bg-black py-2'>
+              {val.majorTopics}
+            </button>
+            {expanded === val.majorTopics && (
+              <div>
+                <div className='flex flex-col'>
+                  {val.subTopics.map((subTopic, subIndex) => (
+                    <button onClick={openModal} className='text-white bg-[#605470] py-2' key={subIndex}>{subTopic}</button>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
-        </div>
-      ))}
-      {modalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>&times;</span>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/-X84GG06g-c" frameborder="2" allowfullscreen></iframe>
+            )}
           </div>
-        </div>
-      )}
+        ))}
+        {modalOpen && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={closeModal}>&times;</span>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/-X84GG06g-c" frameborder="2" allowfullscreen></iframe>
+            </div>
+          </div>
+        )}
+      </div>
+      }
     </div>
-    </div>
-  );
+  )
 }
 
 export default Courses;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import GuitarChordSound from './GuitarChordSound';
+import {useSelector} from 'react-redux'
 import { IoReloadCircle } from "react-icons/io5";
 const chords = [
   'A', 'Am', 'A7', 'Am7', 'Amaj7', 'Adim', 'Aaug', 'Asus2', 'Asus4',
@@ -15,7 +16,8 @@ const SoundGuessingGame = () => {
   const [randomNumber, setRandomNumber] = useState(null);
   const [choiceNums, setChoiceNums] = useState([]);
   const [countCorrect,setCountCorrect]=useState(0)
-  const [reload,setReload]=useState(false)
+const userStatus=useSelector(state=>state.userStatus)
+const [reload,setReload]=useState(false)
   var [count,setCount]=useState(0)
   const [displayResult,setDisplayResult]=useState(false)
   const generateRandomNumbers = () => {
@@ -30,6 +32,8 @@ const SoundGuessingGame = () => {
   };
 
   useEffect(() => {
+  console.log(userStatus)
+
     const randomNums = generateRandomNumbers();
     setChoiceNums(randomNums);
     setRandomNumber(Math.floor(Math.random() * randomNums.length));
