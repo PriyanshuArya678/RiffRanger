@@ -21,24 +21,6 @@ const closeDropDown = () => {
   setisDropDownOpen(false);
 }
 const [loggedIn,setLoggedIn]=useState(false)
-useEffect(()=>{
-  const token=document.cookie.slice(4)
-  console.log(token)
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
-  };
-  async function getAuth(){
-    if(token){
-      const response=await axios.post('http://localhost:3000/Auth',{
-      Headers: headers
-      })
-      console.log(response)
-      if(response.status==200){setLoggedIn(true)}
-    }
-  }
-  getAuth()
-},[])
   return (
     <div className='bg-color1 text-white shadow-md text-xl mt-2 flex justify-between top-0 absolute w-full p-4 '>
       <div className='text-3xl ml-4 mt-2 font-bold items-center'>

@@ -12,7 +12,6 @@ export const userStatusSlice=createSlice({
     initialState,
     reducers: {
         login: (state,action)=>{
-            console.log(action.payload.userEmail)
             state.userStatus.loggedIn=true,
             state.userStatus.userEmail=action.payload.userEmail
             state.userStatus.userName=action.payload.userName

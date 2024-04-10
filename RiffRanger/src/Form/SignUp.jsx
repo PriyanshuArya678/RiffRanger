@@ -41,6 +41,7 @@ function SignUp() {
     }
     
   };
+  
 
   return (
     <div className='bg-black'>
