@@ -102,10 +102,11 @@ function Courses() {
   }
 
   return (
-    <div className='m-40 flex flex-col'>
+    <div className='bg-black'>
+      <div className='m-40 flex flex-col'>
       {majorTopics.map((val, index) => (
         <div key={index} className='flex flex-col'>
-          <button onClick={() => expandTopic(val.majorTopics)} className='text-white mt-3 bg-black py-2'>
+          <button onClick={() => expandTopic(val.majorTopics)} className='text-white mt-3 bg-gradient-to-r from-primary to-secondary py-2'>
             {val.majorTopics}
           </button>
           {expanded === val.majorTopics && (
@@ -127,6 +128,7 @@ function Courses() {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }
