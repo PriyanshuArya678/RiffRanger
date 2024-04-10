@@ -89,22 +89,7 @@ function Courses() {
   const [loggedIn,setLoggedIn]=useState(false)
   const [expanded, setExpanded] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
-  useEffect(()=>{
-    const token=document.cookie.slice(4)
-    console.log(token)
-    const headers = {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    };
-    async function getAuth(){
-      const response=await axios.post('http://localhost:3000/Auth',{
-      Headers: headers
-      })
-      console.log(response)
-      if(response.status==200){setLoggedIn(true)}
-    }
-    getAuth()
-  },[])
+
   function expandTopic(majorTopic) {
     setExpanded(expanded === majorTopic ? null : majorTopic);
   }
