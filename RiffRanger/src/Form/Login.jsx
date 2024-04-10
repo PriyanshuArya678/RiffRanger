@@ -28,8 +28,9 @@ function Login() {
       navigate("/")
     }
     else if(res.data.success==false) {
-      navigate("/SignUp")
       dispatch(logout())
+      navigate("/SignUp")
+      
     }
   
   };

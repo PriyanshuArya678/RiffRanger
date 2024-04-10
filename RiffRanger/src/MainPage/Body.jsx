@@ -4,10 +4,9 @@ import '../body.css';
 import Motivation from './Motivation';
 import Lottie from "lottie-react";
 import Ani from "../assets/Ani2.json";
+import { Link } from 'react-router-dom';
 
 export default function Body() {
-  const [typedText, setTypedText] = useState('');
-  const [showSecondText, setShowSecondText] = useState(false);
   const style ={
     width:"600px"
   }
@@ -24,7 +23,7 @@ export default function Body() {
         {!isSmallScreen() && <Lottie style={style} animationData={Ani}/>}
         {/* <img src={mainImage} alt="" className="mt-38 py-20 " /> */}
         <div className='ml-10 pt-16'>
-          <div className='md:w-1/2 text-center'>
+          <div className='md:w-1/2 text-center pl-20'>
             <div className="main-text text-6xl font-semibold">
               LEARN AND MASTER THE ART OF <span className="text-blue-400">GUITAR</span>
             </div>
@@ -32,7 +31,7 @@ export default function Body() {
               Songs. Techniques. Rhythm. Games. Chords. Practice Tools. From Beginner to Advanced!
             </div>
             <div className="flex gap-24 ml-10">
-            <button className="py-6 px-4 mt-4 rounded-lg float-start bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary font-bold transition-colors"> GET STARTED</button>
+            <button className="py-6 px-4 mt-4 rounded-lg float-start bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary font-bold transition-colors"> <Link to="Login" className="link">GET STARTED</Link></button>
             <button className="py-6 px-8 mt-4 rounded-lg float-start bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary font-bold transition-colors "> GO TO BLOGS</button>
           
             </div>
