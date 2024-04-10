@@ -6,11 +6,13 @@ export async function register(req, res, next) {
     const { name, email, password } = req.body;
     
     try {
+        
         const details = await DetailsModel.create({
             name:name,
             email: email,
             password: password
         });
+        console.log(details)
         const token=await jwt.sign({userId:details._id},process.env.SECRET_KEY,{
             expiresIn:2*24*60*60
         })
