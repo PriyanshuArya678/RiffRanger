@@ -2,20 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'; // Import Link component
 import {useNavigate} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import {login,logout} from '../Store/userStatusSlice';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate=useNavigate()
+  const dispatch = useDispatch()
   const handleLogin = async(e) => {
     e.preventDefault();
-    const res=await axios.post('http://localhost:3000/Login',{email:email,password,password})
-    if(res.status==200)navigate("/")
-    axios.post('http://localhost:3000/Login',{email:email,password,password})
-    // Implement your login logic here
-    console.log("handling error...")
-    console.log('Email:', email);
-    console.log('Password:', password);
-    
   
     // Check password length
     
@@ -26,6 +21,15 @@ function Login() {
     if (password.length < 6) {
       alert('Password must be at least 6 characters long');
       return;
+    }
+    const res=await axios.post('http://localhost:3000/Login',{email:email,password:password})
+    if(res.data.success==true){
+      dispatch(login({userEmail:email,userName:res.data.name}))
+      navigate("/")
+    }
+    else if(res.data.success==false) {
+      navigate("/SignUp")
+      dispatch(logout())
     }
   
   };

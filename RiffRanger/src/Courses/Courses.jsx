@@ -86,8 +86,8 @@ function Courses() {
           ]
         }
       ];
-      const [loggedIn,setLoggedIn]=useState(false)
-      const [expanded, setExpanded] = useState(null);
+  const [loggedIn,setLoggedIn]=useState(false)
+  const [expanded, setExpanded] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   useEffect(()=>{
     const token=document.cookie.slice(4)
@@ -150,9 +150,7 @@ function Courses() {
       </div>
       }
     </div>
-
   )
-  
 }
 
 export default Courses;

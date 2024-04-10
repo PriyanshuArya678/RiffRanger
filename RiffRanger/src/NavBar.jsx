@@ -5,9 +5,12 @@ import { FaBars } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import {useSelector} from 'react-redux'
+
 export default function NavBar() {
 const [isClicked, setClicked] = useState(false);
 const [isDropDownOpen,setisDropDownOpen]=useState(false)
+const userStatus=useSelector(state=>state.userStatus)
 const toggleClicked = () => {
   setClicked(!isClicked);
 }

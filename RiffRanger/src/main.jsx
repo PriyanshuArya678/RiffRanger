@@ -12,7 +12,8 @@ import Courses from './Courses/Courses.jsx';
 import ChordClass from './ChordLibrary/ChordClass.jsx';
 import Login from './Form/Login.jsx';
 import SignUp from './Form/SignUp.jsx';
-
+import {Provider } from 'react-redux'
+import { store } from './Store/store.js';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -59,8 +60,8 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
