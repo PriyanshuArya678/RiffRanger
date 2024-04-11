@@ -16,7 +16,7 @@ const SoundGuessingGame = () => {
   const [randomNumber, setRandomNumber] = useState(null);
   const [choiceNums, setChoiceNums] = useState([]);
   const [countCorrect,setCountCorrect]=useState(0)
-const userStatus=useSelector(state=>state.userStatus)
+const userStatus=useSelector(state=>state.comments)
 const [reload,setReload]=useState(false)
   var [count,setCount]=useState(0)
   const [displayResult,setDisplayResult]=useState(false)
@@ -59,7 +59,7 @@ const [reload,setReload]=useState(false)
       {
         displayResult?
         <div>
-          <div className='flex flex-row justify-center mt-48 items-center'>
+          <div className='flex flex-row justify-center  items-center'>
             <div className='text-red-600 text-4xl font-bold mx-4'>{countCorrect}/{count}</div>
             <div className='font-bold text-3xl'>You got {countCorrect} correct answers out of {count}!!</div>
           </div>

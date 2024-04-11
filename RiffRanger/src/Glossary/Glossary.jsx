@@ -4,7 +4,7 @@ import {A_musicTerms, B_musicTerms, C_musicTerms, D_musicTerms, E_musicTerms, F_
 
 function Glossary() {
   return (
-    <div className='flex flex-col mt-24'>
+    <div className='flex flex-col'>
       <div className='flex flex row text-2xl p-3 justify-center'>Guitar Glossary</div>
       
       <Glossary_Box alphabet="A" musicTerms={A_musicTerms} />

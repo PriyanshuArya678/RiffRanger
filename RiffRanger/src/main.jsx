@@ -14,8 +14,9 @@ import Login from './Form/Login.jsx';
 import SignUp from './Form/SignUp.jsx';
 import {Provider } from 'react-redux'
 import { store } from './Store/store.js';
-import HomePosts from './Community/HomePosts.jsx';
-import Landing from './ECom/Landing.jsx';
+import Community from './Community/Community.jsx';
+import Comment from './Community/Comment.jsx';
+import Landing from './ECom/Landing.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -59,11 +60,15 @@ const router = createBrowserRouter([
       },
       {
         path:'community',
-        element:<HomePosts/>
+        element:<Community/>
       },
       {
         path:'store',
         element:<Landing/>
+      },
+      {
+        path:'community/comment',
+        element:<Comment/>
       }
     ],
   },
