@@ -36,7 +36,7 @@ function Login() {
   };
 
   return (
-    <div className='bg-black font-semibold'>
+    <div className='bg-black font-semibold h-screen'>
       <div className="max-w-md mx-auto p-8 border rounded-lg shadow-lg mt-40">
       <h2 className="text-xl font-bold mb-4 text-white">Login</h2>
       <form onSubmit={handleLogin}>

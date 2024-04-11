@@ -34,7 +34,6 @@ function App() {
     <div className='flex flex-col '>
       <NavBar/>
       <Outlet/>
-      <Motivation/>
     </div>
   )
 }
