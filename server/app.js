@@ -4,12 +4,17 @@ import { connectDb } from './connectDb.js';
 import { login } from './login.js';
 import { register } from './register.js';
 import { auth } from './auth.js';
+import handleComment from './handleComments.js';
+import fetchComments from './fetchComments.js';
 const app = express();
 app.use(cors({
     origin: 'http://localhost:5173', // Replace your_client_port with the port where your client is running
-    credentials: true // Allow cookies to be sent from the client to the server
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'] // Allow cookies to be sent from the client to the server
   }));
 app.use(express.json());
+app.get('/community',fetchComments,(req,res)=>{})
+app.post('/community/comment',handleComment,(req,res)=>{})
 app.post('/Auth',auth,(req,res)=>{})
 app.post('/SignUp', register, (req, res) => {});
 app.post('/Login', login, (req, res) => {});

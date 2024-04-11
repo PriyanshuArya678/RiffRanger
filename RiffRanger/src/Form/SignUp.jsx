@@ -30,10 +30,8 @@ function SignUp() {
         { withCredentials: true }
       );
       console.log('Signup successful');
-      console.log(document.cookie)
       if(res.status==201){
-        dispatch(login({userEmail:email,userName:name}))
-        navigate('/');
+        navigate('/Login');
       }else userStatusSlice(logout())
     } catch (error) {
       dispatch(logout())

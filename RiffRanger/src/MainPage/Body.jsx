@@ -17,7 +17,7 @@ export default function Body() {
   };
 
   return (
-    <div className='Main mt-20'>
+    <div className='Main '>
       <div className="flex flex-row-reverse justify-evenly items-center w-full">
         {/* Conditionally render Lottie component based on screen size */}
         {!isSmallScreen() && <Lottie style={style} animationData={Ani}/>}

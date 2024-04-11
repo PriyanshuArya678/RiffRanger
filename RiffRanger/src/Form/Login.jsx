@@ -22,7 +22,7 @@ function Login() {
       alert('Password must be at least 6 characters long');
       return;
     }
-    const res=await axios.post('http://localhost:3000/Login',{email:email,password:password})
+    const res=await axios.post('http://localhost:3000/Login',{email:email,password:password},{ withCredentials: true })
     if(res.data.success==true){
       dispatch(login({userEmail:email,userName:res.data.name}))
       navigate("/")
@@ -37,7 +37,7 @@ function Login() {
 
   return (
     <div className='bg-black font-semibold'>
-      <div className="max-w-md mx-auto p-8 border rounded-lg shadow-lg mt-40">
+      <div className="max-w-md mx-auto p-8 border rounded-lg shadow-lg ">
       <h2 className="text-xl font-bold mb-4 text-white">Login</h2>
       <form onSubmit={handleLogin}>
         <div className="mb-4">

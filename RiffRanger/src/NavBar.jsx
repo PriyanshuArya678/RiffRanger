@@ -22,7 +22,7 @@ const closeDropDown = () => {
 }
 const [loggedIn,setLoggedIn]=useState(false)
   return (
-    <div className='bg-color1 text-white shadow-md text-xl mt-2 flex justify-between top-0 absolute w-full p-4 '>
+    <div className='bg-color1 text-white shadow-md text-xl  flex justify-between   w-full p-4 '>
       <div className='text-3xl ml-4 mt-2 font-bold items-center'>
   <Link to="/" className="text-">RiffRanger</Link>
 </div>
