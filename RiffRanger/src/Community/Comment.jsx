@@ -18,9 +18,7 @@ export default function Comment() {
         console.error(error);
       }   
     }
-    useEffect(()=>{
-      // console.log(userStatus)
-    })
+   
   return (
     <div  className='bg-color1 h-screen'>
       <div className='flex flex-col'>
