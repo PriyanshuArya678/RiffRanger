@@ -42,8 +42,8 @@ function SignUp() {
   
 
   return (
-    <div className='bg-black'>
-      <div className="max-w-md mx-auto p-8 border rounded-lg shadow-lg mt-40 bg-black font-bold ">
+    <div className='bg-black h-screen'>
+      <div className="max-w-md mx-auto p-8 border rounded-lg shadow-lg  bg-black font-bold ">
       <h2 className="text-xl font-bold mb-4 text-white">Sign Up</h2>
       <form onSubmit={handleSignUp}>
       <div className="mb-4">

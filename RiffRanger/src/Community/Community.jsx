@@ -45,7 +45,7 @@ export default function Community() {
     console.log(userStatus.userStatus.loggedIn)
   },[page])
   return (
-    <div className='bg-color1 h-full'>
+    <div className='bg-color1 h-screen'>
       <div className='flex flex-col'>
         <div className='flex flex-row justify-center font-bold text-3xl text-white mt-5'>
           Our Community
