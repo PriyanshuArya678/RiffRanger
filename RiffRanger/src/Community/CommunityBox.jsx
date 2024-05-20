@@ -3,7 +3,7 @@ import React from 'react'
 export default function CommunityBox({userName,Date,comment}) {
   return (
     <div>
-      <div className='flex flex-col border m-10 rounded-lg'>
+      <div className='flex flex-col border m-10 rounded-lg bg-black h-screen'>
             <div className='flex flex-col justify-start m-2 border p-2 rounded-lg'>
               <div className='text-white'>{userName}</div>
               <div className='text-white'>{Date}</div>

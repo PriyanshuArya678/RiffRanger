@@ -44,11 +44,15 @@ export default function Community() {
     addPost()
   },[page])
   return (
+<<<<<<< HEAD
     <div>
       {
         !userStatus.userStatus.loggedIn? <div className='text-white bg-color1 h-screen'>LOGIN to view this screen</div>
         :
         <div className='bg-color1 h-full'>
+=======
+    <div className='bg-color1 h-screen'>
+>>>>>>> 8f5f0099dab8178cea9659624ea147202fbfcf43
       <div className='flex flex-col'>
         <div className='flex flex-row justify-center font-bold text-3xl text-white mt-5'>
           Our Community

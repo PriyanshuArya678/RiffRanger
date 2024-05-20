@@ -18,14 +18,12 @@ export default function Comment() {
         console.error(error);
       }   
     }
-    useEffect(()=>{
-      // console.log(userStatus)
-    })
+   
   return (
-    <div  className='bg-color1 h-screen'>
+    <div  className='bg-color1 h-screen '>
       <div className='flex flex-col'>
         <div className='text-white flex flex-row justify-center'>POST YOUR COMMENT</div>
-        <textarea onChange={e => setCommentContent(e.target.value)} className='h-[700px] border m-10 bg-color1 border-purple-400 text-white p-10'>
+        <textarea onChange={e => setCommentContent(e.target.value)} className='h-[400px] border m-10 bg-color1 border-purple-400 text-white p-10'>
         </textarea>
         <button onClick={addPost} className='text-white flex flex-row justify-center border w-1/5 ml-12'>
             POST

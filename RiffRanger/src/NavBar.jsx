@@ -31,7 +31,7 @@ const [loggedIn,setLoggedIn]=useState(false)
     <li className="main-links hover:text-blue-400"><Link to={`courses`}>COURSES</Link></li>
     <li className="main-links hover:text-blue-400"><Link to={`community`}>COMMUNITY</Link></li>
     <li className="relative hover:text-blue-400" onClick={toggleDropDown}>
-      <span>TOOLS</span>
+     <button className='main-links'>TOOLS</button>
       {isDropDownOpen && (
         <div className=" inlist dropdown flex flex-col absolute bg-slate-400 right-0 shadow-md mt-2 py-2 rounded-lg z-50" onMouseEnter={toggleDropDown} onMouseLeave={closeDropDown}>
           <Link to={'tools/metronome'} className='block px-4 py-2 hover:bg-gray-100 border-b border-gray-200'>Metronome</Link>
