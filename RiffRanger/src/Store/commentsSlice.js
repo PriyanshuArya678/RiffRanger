@@ -13,6 +13,7 @@ export const commentSlice= createSlice({
                 date:action.payload.date
             }
             state.comments.push(comment)
+            state.comments.slice(1)
         },
         cleanup: (state,action)=>{
             state.comments.length=0

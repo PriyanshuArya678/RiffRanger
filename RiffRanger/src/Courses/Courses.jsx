@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Courses.css'; 
 import axios from 'axios';
+import {useSelector} from 'react-redux'
+
 function Courses() {
+  const userStatus=useSelector(state=>state.userStatus)
+
       const majorTopics = [
         {
           'majorTopics':'Learn the Basics',
@@ -102,22 +106,22 @@ function Courses() {
     setModalOpen(false);
   }
   return (
-    <div>
+    <div className='bg-color1 h-screen flex flex-col'>
       {
-        !loggedIn?
+        !userStatus.userStatus.loggedIn?
         <div>Login Again</div>
         :
-        <div className='m-40 flex flex-col'>
+        <div className=' m-20 '>
         {majorTopics.map((val, index) => (
           <div key={index} className='flex flex-col'>
-            <button onClick={() => expandTopic(val.majorTopics)} className='text-white mt-3 bg-black py-2'>
+            <button onClick={() => expandTopic(val.majorTopics)} className='text-white mt-3 bg-[#191919] py-2 border'>
               {val.majorTopics}
             </button>
             {expanded === val.majorTopics && (
-              <div>
-                <div className='flex flex-col'>
+              <div className='border p-3'>
+                <div className='flex flex-col  bg-color1'>
                   {val.subTopics.map((subTopic, subIndex) => (
-                    <button onClick={openModal} className='text-white bg-[#605470] py-2' key={subIndex}>{subTopic}</button>
+                    <button onClick={openModal} className='text-white bg-[#191919] border border-purple-400 py-2 m-2' key={subIndex}>{subTopic}</button>
                   ))}
                 </div>
               </div>

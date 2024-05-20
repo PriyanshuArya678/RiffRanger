@@ -42,10 +42,13 @@ export default function Community() {
       }     
     }
     addPost()
-    console.log(userStatus.userStatus.loggedIn)
   },[page])
   return (
-    <div className='bg-color1 h-full'>
+    <div>
+      {
+        !userStatus.userStatus.loggedIn? <div className='text-white bg-color1 h-screen'>LOGIN to view this screen</div>
+        :
+        <div className='bg-color1 h-full'>
       <div className='flex flex-col'>
         <div className='flex flex-row justify-center font-bold text-3xl text-white mt-5'>
           Our Community
@@ -77,5 +80,8 @@ export default function Community() {
         
       </div>
     </div>
+      }
+    </div>
+    
   );
 }
