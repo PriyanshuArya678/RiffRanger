@@ -22,7 +22,7 @@ function Glossary_Box({alphabet,musicTerms}) {
     }
   return (
     <div className=''>
-      <div className='text-xl p-3 bg-light-green'>{alphabet}</div>
+      <div className='text-xl p-3 bg-color1 text-white flex flex-row justify-center'>{alphabet}</div>
       <div className='flex flex-col'>{musicTerms.map((term,index)=>(
         <button onClick={() => fetchMeaning(term)}className='text-lg p-2' key={index}>{term}</button>
       ))}</div>
