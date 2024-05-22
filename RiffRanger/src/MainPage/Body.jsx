@@ -38,7 +38,7 @@ export default function Body() {
             
           </div>
         </div>
-        <Lottie style={style} animationData={Ani} className="hidden md:block lg-block"/>
+        <Lottie style={style} animationData={Ani} className="hidden md:block lg-block ml-10"/>
       
       </div>
       </div>

@@ -1,6 +1,10 @@
 body{
     
 }
+.bg-color1{
+    background-color: black;
+    height:100%;
+}
 .main{
     width:60%;
     margin: 24% auto;
