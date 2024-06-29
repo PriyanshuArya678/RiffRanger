@@ -11,6 +11,11 @@ const Landing = () => {
   const [activeItems, setActiveItems] = useState("instruments"); // Default active items
 
   const cartitems = useSelector(state => state.cart);
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
+    setCartCount(cartitems.items.length);
+  };
+
   const wishlistitems = useSelector(state => state.wishlist);
   const dispatch = useDispatch();
 
@@ -22,10 +27,7 @@ const Landing = () => {
     setWishlistCount(wishlistitems.items.length);
   };
 
-  const handleAddToCart = (item) => {
-    dispatch(addToCart(item));
-    setCartCount(cartitems.items.length);
-  };
+  
 
   const items = [
     {

@@ -19,6 +19,7 @@ import Comment from './Community/Comment.jsx';
 import Landing from './ECom/Landing.jsx'
 import Cart from './ECom/Cart.jsx';
 import Checkout from './ECom/Checkout.jsx';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -78,6 +79,7 @@ const router = createBrowserRouter([
         path:'store/Cart/Checkout',
         element:<Checkout/>
       },
+      
 
     ],
   },

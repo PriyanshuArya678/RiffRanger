@@ -1,4 +1,5 @@
-body{
+.body{
+    background-color: blac;
     
 }
 .bg-color1{
@@ -32,14 +33,14 @@ body{
     height:100px;
     width:48px;
     position:absolute;
-    bottom:-20px;
+    bottom:-30px;
     left:50%;
     transform:translateX(-50%);
     z-index:2;
 
 }
 .selectBtn{
-    height:26px;
+    height:28px;
     width:28px;
     background-color:white;
     border-radius:50%;

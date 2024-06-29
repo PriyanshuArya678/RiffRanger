@@ -26,23 +26,25 @@ const [loggedIn,setLoggedIn]=useState(false)
       <div className='text-3xl ml-4 mt-2 font-bold items-center'>
   <Link to="/" className="text-">RiffRanger</Link>
 </div>
-      <div className='navbar-items mt-2 mr-4'>
-  <ul className={`text-2xl gap-6 flex justify-center items-center ${isClicked ? 'navbar-items active ' : 'navbar-items'}`}>
-    <li className="main-links hover:text-blue-400"><Link to={`courses`}>COURSES</Link></li>
-    <li className="main-links hover:text-blue-400"><Link to={`community`}>COMMUNITY</Link></li>
-    <li className="relative hover:text-blue-400" onClick={toggleDropDown}>
-     <button className='main-links'>TOOLS</button>
+      <div className='navbar-items mt-2 mr-4 '>
+  <ul className={`text-2xl font-bold gap-6 flex justify-center items-center ${isClicked ? 'navbar-items active ' : 'navbar-items'}`}>
+  <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full">
+    <Link to={`courses`}>COURSES</Link>
+</li>
+ <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full"><Link to={`community`}>COMMUNITY</Link></li>
+    <li className="relative" onClick={toggleDropDown}>
+     <button className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full">TOOLS</button>
       {isDropDownOpen && (
         <div className=" inlist dropdown flex flex-col absolute bg-slate-400 right-0 shadow-md mt-2 py-2 rounded-lg z-50" onMouseEnter={toggleDropDown} onMouseLeave={closeDropDown}>
-          <Link to={'tools/metronome'} className='block px-4 py-2 hover:bg-gray-100 border-b border-gray-200'>Metronome</Link>
-          <Link to={`tools/soundGuessingGame`} className='block px-4 py-2 hover:bg-gray-100 border-b border-gray-200'>Sound Guessing Game</Link>
-          <Link to={`tools/chordLibrary`} className='block px-4 py-2 hover:bg-gray-100 border-b border-gray-200'>Chord Library</Link>
-          <Link to={`tools/glossary`} className='block px-4 py-2 hover:bg-gray-100'>Glossary</Link>
+          <Link to={'tools/metronome'} className='block px-4 py-2 border-b hover:text-black '>Metronome</Link>
+          <Link to={`tools/soundGuessingGame`} className='block px-4 py-2 border-b hover:text-black  border-gray-200'>Sound Guessing Game</Link>
+          <Link to={`tools/chordLibrary`} className='block px-4 py-2  border-b hover:text-black border-gray-200'>Chord Library</Link>
+          <Link to={`tools/glossary`} className='block px-4 py-2 hover:text-black'>Glossary</Link>
         </div>
       )}
     </li>
-    <li className="main-links hover:text-blue-400"><Link to={`store`}>STORE</Link></li>
-    <li className="main-links hover:text-blue-400"><Link to={`explore`}>EXPLORE</Link></li>
+    <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full"><Link to={`store`}>STORE</Link></li>
+    <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full"><Link to={`explore`}>EXPLORE</Link></li>
     {window.innerWidth<970 &&( <li><button className='login-btn md:hidden bg-gradient-to-r w-40 from-primary to-secondary hover:from-secondary hover:to-primary text-white'>
     <Link to ={`Login`}>LOG IN</Link> 
         </button></li>)}

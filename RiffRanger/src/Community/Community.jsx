@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux'
 import CommunityBox from './CommunityBox';
 import axios from 'axios'
+import './Community.css'
 import { push,cleanup } from '../Store/commentsSlice';
 export default function Community() {
   const [commentList ,setCommentList]=useState('')
@@ -48,7 +49,7 @@ export default function Community() {
       {
         !userStatus.userStatus.loggedIn? <div className='text-white bg-color1 h-screen'>LOGIN to view this screen</div>
         :
-        <div className='bg-color1 h-full'>
+        <div id= 'body' className='bg-black  '>
       <div className='flex flex-col'>
         <div className='flex flex-row justify-center font-bold text-3xl text-white mt-5'>
           Our Community

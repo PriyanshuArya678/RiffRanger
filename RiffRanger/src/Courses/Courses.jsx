@@ -125,12 +125,12 @@ function Courses() {
           <div  >
             <div className='flex flex-col items-center'>
               <div className='text-white text-6xl font-bold'>OUR <span className='text-blue-400'>COURSES</span></div>
-              <div className='text-white grid items-center lg:grid-cols-2 lg:text-2xl '>
+              <div className='text-white grid items-center lg:grid-cols-2 lg:text-2xl'>
                 <Lottie style={style} animationData={Ani} className="hidden md:block lg-block ml-10"/>
                 <div className='font-thin'>"Explore our comprehensive guitar courses designed for all skill levels. Learn the basics, master advanced techniques, and dive into various styles and genres. Click on each topic to discover detailed lessons and watch engaging tutorial videos. Start your musical journey with us today!</div>
                 </div>
               <div>
-                <Lottie style={style1} animationData={Ani1} className="hidden md:block lg-block ml-10"/>
+                <Lottie style={style1} animationData={Ani1} className="hidden md:block lg:block ml-10"/>
               </div>
             </div>
           </div>
@@ -138,7 +138,7 @@ function Courses() {
             <div className='w-[40%]'>
               {majorTopics.map((val, index) => (
                 <div key={index} className='flex flex-col font-bold'>
-                  <button onClick={() => expandTopic(val.majorTopics)} className='text-white mt-3 bg-[#74817d] py-2 border border-teal-400'>
+                  <button onClick={() => expandTopic(val.majorTopics)} className='text-white mt-3 bg-[#313532] py-2 border border-teal-400'>
                     {val.majorTopics}
                   </button>
                   {expanded === val.majorTopics && (
