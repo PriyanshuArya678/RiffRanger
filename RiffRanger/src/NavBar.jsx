@@ -42,7 +42,7 @@ const [loggedIn,setLoggedIn]=useState(false)
       )}
     </li>
     <li className="main-links hover:text-blue-400"><Link to={`store`}>STORE</Link></li>
-    <li className="main-links hover:text-blue-400"><Link to={`explore`}>EXPLORE</Link></li>
+    {/* <li className="main-links hover:text-blue-400"><Link to={`explore`}>EXPLORE</Link></li> */}
     {window.innerWidth<970 &&( <li><button className='login-btn md:hidden bg-gradient-to-r w-40 from-primary to-secondary hover:from-secondary hover:to-primary text-white'>
     <Link to ={`Login`}>LOG IN</Link> 
         </button></li>)}

@@ -8,7 +8,7 @@ import handleComment from './handleComments.js';
 import fetchComments from './fetchComments.js';
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:5173', // Replace your_client_port with the port where your client is running
+    origin: ['http://localhost:5173','https://riff-ranger-lc7u.vercel.app'], // Replace your_client_port with the port where your client is running
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'] // Allow cookies to be sent from the client to the server
   }));
