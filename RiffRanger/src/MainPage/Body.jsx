@@ -9,7 +9,6 @@ import Ani1 from '../assets/MyAni1.json'
 import Ani2 from '../assets/MyAni2.json'
 import Ani3 from '../assets/myANi3.json'
 import Footer from './Footer';
-import Counter from './Counter';
 
 export default function Body() {
   const style ={
@@ -211,7 +210,6 @@ export default function Body() {
       </div>
       </div>
       <div className='mt-[10%] mb-[5%]'>
-      <Counter/>
       </div>
       </div>
       <Footer/>
