@@ -6,6 +6,9 @@ import Ani1 from "../assets/Ani5.json";
 import Ani2 from "../assets/Ani6.json";
 import {useSelector} from 'react-redux'
 import Lottie from 'lottie-react';
+import Ani3 from '../assets/MyAni4.json'
+import {Link} from 'react-router-dom'
+
 
 function Courses() {
   const userStatus=useSelector(state=>state.userStatus)
@@ -119,7 +122,46 @@ function Courses() {
     <div className='bg-color1'>
       {
         !userStatus.userStatus.loggedIn?
-        <div>Login Again</div>
+        <div className=' flex flex-col items-center  lg:ml-24 p-4'>
+      <div className='border-b-2 border-green-500 text-white text-2xl sm:text-4xl lg:text-4xl font-bold inline-block'>
+          OUR <span className='text-green-500'>COURSES</span>
+        </div>
+        
+      <div className='flex flex-col sm:justify-center items-center lg:flex-row-reverse'>
+      <div className='sm:w-[30%] lg:w-[30%]'>
+        <Lottie animationData={Ani3} />
+      </div>
+      <div className=' w-full lg:w-[50%] flex flex-col items-center lg:items-start lg:ml-8 mt-8'>
+        <p className="font-bold text-3xl text-white mb-4 text-center lg:text-left">
+        Learn Guitar from Scratch!
+        </p>
+        <p className="text-white text-lg text-center lg:text-left mb-4 px-4 lg:px-0">
+        Discover our comprehensive guitar courses, designed for all skill levels. Whether you're a beginner or an advanced player, explore a variety of lessons to master chords, techniques, and songs. Start your musical journey today and unlock your potential with our expert instructors and engaging content. Dive into the world of guitar!</p>
+        <div className="font-bold text-3xl text-white mb-4 text-center lg:text-left">
+          <span className='text-green-400'>LOGIN</span > TO BEGIN!!!         </div>
+          
+        <Link to='/login'><button
+  class="border border-white overflow-hidden relative w-32 p-2 h-12 bg-black text-white  rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+>
+  Hover me!
+  <span
+    class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"
+  ></span>
+  <span
+    class="absolute w-36 h-32 -top-8 -left-2 bg-green-400 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"
+  ></span>
+  <span
+    class="absolute w-36 h-32 -top-8 -left-2 bg-green-800 rotate-12 transform scale-x-0 group-hover:scale-x-50 transition-transform group-hover:duration-1000 duration-500 origin-left"
+  ></span>
+  <span
+    class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+    >LOGIN</span
+  >
+</button>
+</Link>
+      </div>
+    </div>
+      </div>
         :
         <div className='flex flex-col'>
           <div  >

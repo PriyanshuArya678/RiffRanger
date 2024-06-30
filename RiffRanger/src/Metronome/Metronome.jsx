@@ -54,28 +54,27 @@ function Metronome() {
     }
 
     return (
-        <div className=' body bg-color1 h-full '>
+        <div className='bg-color1 '>
             
-            <div className="container mx-auto h-screen flex flex-col justify-center items-center relative">
-            <h1 className="text-6xl mb-4 absolute top-0 font-extrabold bg-black text-white w-50 h-20 px-5 flex flex-col justify-center items-center">METRONOME</h1>
-                
-                <div className="flex absolute top-24 lg:text-xl rounded-lg">
-                    <div className="text-white ml-10 mr-[10%] mt-[10%]">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus maiores beatae est itaque nobis! Quod quo animi eum? Tenetur voluptas molestiae hic doloribus cupiditate eius. Iste, natus illo vel quisquam ipsam architecto sunt error veritatis doloremque corporis dicta. Nesciunt esse cupiditate tempore laborum explicabo ipsa quam error nihil culpa praesentium?
-                    </div>
-                    <div className="hidden md:block lg:block mr-20">
+            <div className="container mx-auto h-screen flex flex-col relative ">
+            <h1 className="text-6xl mb-4 top-0  font-extrabold bg-black text-white lg:ml-[40%]">METRONOME</h1>
+                    <div className='lg:flex'>
+                    <div className="hidden  md:block lg:block">
                         <Lottie style={style1} animationData={Ani8} />
                     </div>
-                    <div className='mt-[20%] lg:hidden md:hidden'>
+                    <div className=' ml-[30%] lg:hidden md:hidden'>
                         <Lottie style={style2} animationData={Ani9} />
                     </div>
-                </div>
-
-                <div className='flex flex-row mt-[30%]'>
-                    <div className='lg:border border-teal-40  lg:p-1 rounded-lg'>
+                    <div className="text-white lg:text-2xl lg:mt-[10%] lg:px-[10%]">
+                       
+Enhance your practice with our metronome section, designed to help you master timing and rhythm. Perfect for guitarists of all levels, our metronome offers customizable tempos and beats to suit your practice needs. Stay in sync and improve your precision with this essential tool for every musician.</div>
+                    </div>
+                    <div className="sm:flex flex-col lg:text-xl mt-20 ml-[15%]">
+                    <div className='flex flex-row'>
+                    <div className=' lg:p-1 rounded-lg'>
                         <div className='flex flex-row items-center'>
                             <button onClick={decrease} className='bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white h-10 w-10 ml-2 text-3xl'>-</button>
-                            <div className="w-[40rem] relative mx-8">
+                            <div className="sm:w-[20rem] md:w-[30rem] relative mx-8">
                                 <input type="range" min="0" max="100" id="slider" value={sliderPosition} onChange={(e) => setSliderPosition(e.target.value)} />
                                 <div id="selector" style={{ left: `${sliderPosition}%` }} className="">
                                     <div className="selectBtn"></div>
@@ -89,7 +88,9 @@ function Metronome() {
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
+            
         </div>
     )
 }

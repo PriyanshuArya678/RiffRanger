@@ -45,6 +45,8 @@ const [loggedIn,setLoggedIn]=useState(false)
     </li>
     <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full"><Link to={`store`}>STORE</Link></li>
     <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full"><Link to={`explore`}>EXPLORE</Link></li>
+    {/* <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full"><Link to={`store`}>STORE</Link></li> */}
+    {/* <li className="main-links hover:text-blue-400"><Link to={`explore`}>EXPLORE</Link></li> */}
     {window.innerWidth<970 &&( <li><button className='login-btn md:hidden bg-gradient-to-r w-40 from-primary to-secondary hover:from-secondary hover:to-primary text-white'>
     <Link to ={`Login`}>LOG IN</Link> 
         </button></li>)}

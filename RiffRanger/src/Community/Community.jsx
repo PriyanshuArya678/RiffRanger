@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux'
 import CommunityBox from './CommunityBox';
 import axios from 'axios'
+import Lottie from 'lottie-react';
+import Ani from '../assets/MyAni5.json'
 import './Community.css'
 import { push,cleanup } from '../Store/commentsSlice';
 export default function Community() {
@@ -47,7 +49,46 @@ export default function Community() {
   return (
     <div>
       {
-        !userStatus.userStatus.loggedIn? <div className='text-white bg-color1 h-screen'>LOGIN to view this screen</div>
+        !userStatus.userStatus.loggedIn? 
+        <div className=' flex flex-col items-center  lg:ml-24 p-4'>
+        <div className='border-b-2 border-blue-700 text-white text-2xl sm:text-4xl lg:text-4xl font-bold inline-block'>
+            OUR <span className='text-blue-700'>COMMUNITY</span>
+          </div>
+          
+        <div className='flex flex-col sm:justify-center items-center lg:flex-row'>
+        <div className='sm:w-[30%] lg:w-[40%]'>
+          <Lottie animationData={Ani} />
+        </div>
+        <div className=' w-full lg:w-[50%] flex flex-col items-center lg:items-start lg:ml-8 mt-8'>
+          <p className="font-bold text-3xl text-white mb-4 text-center lg:text-left">
+          Join the Riff-Community!
+          </p>
+          <p className="text-white text-lg text-center lg:text-left mb-4 px-4 lg:px-0">
+          Join our vibrant community section to connect with fellow guitar enthusiasts! Share your thoughts through comments and blogs, exchange tips, and engage in lively chats. Whether you're seeking advice, inspiration, or camaraderie, our community is here to support your musical journey. Come join the conversation and be part of our guitar family!</p>
+          <div className="font-bold text-3xl text-white mb-4 text-center lg:text-left">
+          <span className='text-blue-600'>LOGIN</span > TO BEGIN!!!         </div>
+          <Link to='/login'><button
+    class="border border-white overflow-hidden relative w-32 p-2 h-12 bg-black text-white  rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+  >
+    Hover me!
+    <span
+      class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"
+    ></span>
+    <span
+      class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"
+    ></span>
+    <span
+      class="absolute w-36 h-32 -top-8 -left-2 bg-blue-800 rotate-12 transform scale-x-0 group-hover:scale-x-50 transition-transform group-hover:duration-1000 duration-500 origin-left"
+    ></span>
+    <span
+      class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+      >LOGIN</span
+    >
+  </button>
+  </Link>
+        </div>
+      </div>
+        </div>
         :
         <div id= 'body' className='bg-black  '>
       <div className='flex flex-col'>
