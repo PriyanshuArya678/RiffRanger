@@ -5,7 +5,6 @@ const initialState={
         userName:'',
         userEmail:''
     }
-    
 }
 export const userStatusSlice=createSlice({
     name:'userStatus',

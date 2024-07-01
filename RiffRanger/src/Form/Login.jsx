@@ -22,7 +22,7 @@ function Login() {
       alert('Password must be at least 6 characters long');
       return;
     }
-    const res=await axios.post('http://localhost:3000/Login',{email:email,password:password},{ withCredentials: true })
+    const res=await axios.post('https://riffranger-1.onrender.com/Login',{email:email,password:password},{ withCredentials: true })
     if(res.data.success==true){
       dispatch(login({userEmail:email,userName:res.data.name}))
       navigate("/")

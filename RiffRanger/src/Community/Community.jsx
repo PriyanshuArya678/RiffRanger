@@ -18,7 +18,7 @@ export default function Community() {
     const addPost= async()=>{
       dispatch(cleanup())
       try {
-        const response = await axios.get(`http://localhost:3000/community/?page=${page}`)
+        const response = await axios.get(`https://riffranger-1.onrender.com/community/?page=${page}`)
         const comments = response.data.comment;
         console.log(comments)
         comments.forEach(comment => {

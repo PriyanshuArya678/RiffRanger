@@ -25,7 +25,7 @@ function SignUp() {
     }
     try {
       const res=await axios.post(
-        'http://localhost:3000/SignUp',
+        'https://riffranger-1.onrender.com/SignUp',
         { name, email, password },
         { withCredentials: true }
       );

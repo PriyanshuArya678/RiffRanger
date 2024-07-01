@@ -9,7 +9,7 @@ export default function Comment() {
   const navigate =useNavigate()
     const addPost= async()=>{
       try {
-        const response = await axios.post('http://localhost:3000/community/comment?page=0', {
+        const response = await axios.post('https://riffranger-1.onrender.com/community/comment?page=0', {
           userName: userStatus.userStatus.userName,
           comment: commentContent
         });
