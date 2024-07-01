@@ -31,8 +31,13 @@ function SignUp() {
       );
       console.log('Signup successful');
       if(res.status==201){
+        alert('you are signed in! Please log in with your credentials')
         navigate('/Login');
-      }else userStatusSlice(logout())
+      }else {
+        alert('this email is already registered please try logging in , Or try with a different email')
+        userStatusSlice(logout())
+        navigate('/Login')
+      }
     } catch (error) {
       dispatch(logout())
       console.error('Signup failed:', error);

@@ -29,6 +29,7 @@ function Login() {
     }
     else if(res.data.success==false) {
       dispatch(logout())
+      alert('you are not registered ,please SignUp')
       navigate("/SignUp")
       
     }
