@@ -3,32 +3,14 @@ import Glossary_Box from './Glossary_Box';
 import {A_musicTerms, B_musicTerms, C_musicTerms, D_musicTerms, E_musicTerms, F_musicTerms, G_musicTerms, H_musicTerms, I_musicTerms, J_musicTerms, K_musicTerms, L_musicTerms, M_musicTerms, N_musicTerms, O_musicTerms, P_musicTerms, Q_musicTerms, R_musicTerms, S_musicTerms, T_musicTerms, U_musicTerms, V_musicTerms, W_musicTerms } from './constants';
 
 function Glossary() {
-  const fetchMeaning=(term)=>{
-    fetch(`http://localhost:3000/musicTerm/${term}`)
-    .then((response) => {
-        // Check if the response is successful
-        if (!response.ok) {
-            throw new Error('Failed to fetch meaning');
-        }
-        // Parse the JSON data
-        return response.json();
-    })
-    .then((data) => {
-        var data=data// Log or handle the fetched data
-        console.log(data);
-    })
-    .catch((error) => {
-        // Handle any errors
-        console.error('Error fetching meaning:', error);
-    });
-}
+
   const alphabets=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W"]
   return (
     <div className='flex flex-col bg-color1 h-screen'>
       <div className='flex flex row text-2xl p-3 justify-center text-white font-bold text-3xl'>Guitar Glossary</div>
       <div className='flex flex-col'>
         <div className='flex flex-row'>
-          <button onClick={()=>{fetchMeaning("A")}} className='text-white border m-3 px-4 py-3 rounded-lg  hover:bg-purple-700 px-4 py-2 rounded-md transition duration-300 ease-in-out'>A</button>
+          <button onClick={()=>{openList()}} className='text-white border m-3 px-4 py-3 rounded-lg  hover:bg-purple-700 px-4 py-2 rounded-md transition duration-300 ease-in-out'>A</button>
           <button className='text-white border m-3 px-4 py-3 rounded-lg  hover:bg-purple-700 px-4 py-2 rounded-md transition duration-300 ease-in-out'>B</button>
           <button className='text-white border m-3 px-4 py-3 rounded-lg  hover:bg-purple-700 px-4 py-2 rounded-md transition duration-300 ease-in-out '>C</button>
         </div>

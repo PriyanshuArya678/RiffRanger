@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux'
 import {login,logout} from '../Store/userStatusSlice';
 import ani from '../assets/MyAni8.json'
 import Lottie from 'lottie-react';
+import { toast } from 'react-toastify';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,22 +19,24 @@ function Login() {
     // Check password length
     
     if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
-      alert('Please enter a valid email address');
+      toast.error('Please enter a valid email address');
       return;
     }
     if (password.length < 6) {
-      alert('Password must be at least 6 characters long');
+      toast.error('Password must be at least 6 characters long');
       return;
     }
     setLoading(true);
-    const res=await axios.post('http://localhost:3000/Login',{email:email,password:password},{ withCredentials: true })
+    const res=await axios.post('https://riffranger-1.onrender.com/Login',{email:email,password:password},{ withCredentials: true })
     if(res.data.success==true){
       dispatch(login({userEmail:email,userName:res.data.name}))
+      toast.success('You are logged in!')
       setLoading(false)
       navigate("/")
     }
     else if(res.data.success==false) {
       dispatch(logout())
+      toast.error('you are not registered ,please SignUp')
       navigate("/SignUp")
       
     }
@@ -41,14 +44,16 @@ function Login() {
   };
 
   return (
+    loading ? (<div className='w-[40%] md:w-[20%] justify-center items-center mx-[40%] my-[20%] md:mx-[40%] md:my-[10%] '>
+      <Lottie animationData={ani}></Lottie>
+      <p className='text-white font-bold '>Please wait! You are being loged in!</p>
+    </div>
+
+    ):
     <div className='bg-black font-semibold h-screen'>
       <div className="max-w-md mx-auto p-8 border rounded-lg shadow-lg ">
       <h2 className="text-xl font-bold mb-4 text-white">Login</h2>
-      {loading ? (<div>
-        <Lottie animationData={ani}></Lottie>
-      </div>
-
-      ):(
+      
         <form onSubmit={handleLogin}>
         <div className="mb-4">
           <label className="block mb-2 text-white">Email:</label>
@@ -73,7 +78,7 @@ function Login() {
           className='login-btn px-4 py-2 mb-4 w-96 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white font-bold'>
           Login
         </button>
-      </form>)}
+      </form>
       
       {/* Link to SignUp page */}
       <p className="text-center text-white">
