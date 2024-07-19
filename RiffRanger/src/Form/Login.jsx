@@ -4,9 +4,12 @@ import axios from 'axios'; // Import Link component
 import {useNavigate} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import {login,logout} from '../Store/userStatusSlice';
+import ani from '../assets/MyAni8.json'
+import Lottie from 'lottie-react';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading,setLoading] = useState(false);
   const navigate=useNavigate()
   const dispatch = useDispatch()
   const handleLogin = async(e) => {
@@ -22,9 +25,11 @@ function Login() {
       alert('Password must be at least 6 characters long');
       return;
     }
+    setLoading(true);
     const res=await axios.post('http://localhost:3000/Login',{email:email,password:password},{ withCredentials: true })
     if(res.data.success==true){
       dispatch(login({userEmail:email,userName:res.data.name}))
+      setLoading(false)
       navigate("/")
     }
     else if(res.data.success==false) {
@@ -39,7 +44,12 @@ function Login() {
     <div className='bg-black font-semibold h-screen'>
       <div className="max-w-md mx-auto p-8 border rounded-lg shadow-lg ">
       <h2 className="text-xl font-bold mb-4 text-white">Login</h2>
-      <form onSubmit={handleLogin}>
+      {loading ? (<div>
+        <Lottie animationData={ani}></Lottie>
+      </div>
+
+      ):(
+        <form onSubmit={handleLogin}>
         <div className="mb-4">
           <label className="block mb-2 text-white">Email:</label>
           <input
@@ -63,7 +73,8 @@ function Login() {
           className='login-btn px-4 py-2 mb-4 w-96 bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white font-bold'>
           Login
         </button>
-      </form>
+      </form>)}
+      
       {/* Link to SignUp page */}
       <p className="text-center text-white">
         Don't have an account?{' '}
