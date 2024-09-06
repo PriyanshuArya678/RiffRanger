@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ChordDisplay } from '@magicdidac/chord-display';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import { details } from '../chordDetails';
 export default function ChordClass() {
   const { chordClass } = useParams();
   const [loading, setLoading] = useState(true);
@@ -10,12 +10,12 @@ export default function ChordClass() {
   const chordTypes = ['', '_m', '_7', '_m7', '_maj7', '_dim', '_aug', '_sus2', '_sus4'];
 
   async function getData(chordName) {
-    const response = await axios.get(`https://api.uberchord.com/v1/chords/${chordName}`);
+    const response=details[chordName]
+    // const response = await axios.get(`https://api.uberchord.com/v1/chords/${chordName}`);
     const f = [];
-    if (response.status === 200) {
       try {
-        const data = response.data;
-        const fretsData = data[0]["strings"];
+        const fretsData = response["strings"];
+        console.log(fretsData)
         for (let i = 0; i < fretsData.length; i++) {
           const val = fretsData[i];
           if (val === ' ') continue;
@@ -33,12 +33,13 @@ export default function ChordClass() {
           if (!chordExists) {
             return [...prevChords, { name: chordName, frets: f }];
           }
+          console.log(prevChords)
           return prevChords;
         });
       } catch (error) {
         console.log(error);
       }
-    }
+    
   }
 
   useEffect(() => {
@@ -54,10 +55,10 @@ export default function ChordClass() {
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <div className='flex flex-row flex-wrap bg-white'>
+        <div className="flex flex-row flex-wrap bg-white h-screen">
           {chordList.map((val, index) => (
-            <div className=''> 
-            <ChordDisplay key={index} chord={val} />
+            <div key={index} className="p-4"> 
+              <ChordDisplay chord={val} />
             </div>
           ))}
         </div>

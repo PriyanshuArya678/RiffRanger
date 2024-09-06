@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as Tone from 'tone';
 import axios from 'axios';
-
+import { details } from '../chordDetails.js';
 const GuitarChordSound = ({ chord }) => {
   const stringNotes = [
     ['E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#'],
@@ -16,10 +16,10 @@ const GuitarChordSound = ({ chord }) => {
   useEffect(() => {
     async function getNotes() {
       const chordName = chord[0] + '_' + chord.slice(1);
-      const response = await axios.get(`https://api.uberchord.com/v1/chords/${chordName}`);
-      if (response.status === 200) {
-        const data = response.data;
-        const fretData = data[0]['strings'];
+      // const response = await axios.get(`https://api.uberchord.com/v1/chords/${chordName}`);
+      const response= details[chordName]
+      console.log(response)
+        const fretData = response['strings'];
         var string = 1;
         var noteData = [];
         for (let i = fretData.length - 1; i >= 0; i--) {
@@ -35,7 +35,7 @@ const GuitarChordSound = ({ chord }) => {
         }
         setNotes(noteData);
       }
-    }
+    
     getNotes();
   }, [chord]);
 
