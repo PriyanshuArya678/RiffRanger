@@ -55,10 +55,10 @@ export default function ChordClass() {
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <div className="flex flex-row flex-wrap bg-white h-screen">
+        <div className="flex flex-row flex-wrap justify-evenly ">
           {chordList.map((val, index) => (
-            <div key={index} className="p-4"> 
-              <ChordDisplay chord={val} />
+            <div key={index} className=" bg-white m-10"> 
+              <ChordDisplay className="" chord={val} />
             </div>
           ))}
         </div>
