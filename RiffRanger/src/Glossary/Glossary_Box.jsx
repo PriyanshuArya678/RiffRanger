@@ -1,65 +1,58 @@
-// Glossary_Box.js
 import React, { useState } from 'react';
-import axios from 'axios';
 
 function Glossary_Box({ alphabet, musicTerms }) {
-  const [selectedTerm, setSelectedTerm] = useState(null);
-  const [termMeaning, setTermMeaning] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTerm, setSelectedTerm] = useState(null); // To store the clicked word for modal
+  const [meaning, setMeaning] = useState(''); // To store the fetched meaning
+  const [isModalOpen, setIsModalOpen] = useState(false); // To control the modal
 
-  const dictionaryAPIKey = '07628e4b-78b1-4e82-bb45-0a235b724f20'; // Replace with your Merriam-Webster API key
-
-  // Fetch the meaning of the term
-  const fetchMeaning = async (term) => {
-    try {
-      const response = await axios.get(
-        `https://dictionaryapi.com/api/v3/references/collegiate/json/${term}?key=${dictionaryAPIKey}`
-      );
-      const data = response.data[0].shortdef;
-      setSelectedTerm(term);
-      setTermMeaning(data);
-      setIsModalOpen(true);
-    } catch (error) {
-      console.error('Error fetching meaning:', error);
-      setTermMeaning(['Meaning not found']);
-      setIsModalOpen(true);
-    }
-  };
-
-  // Close modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedTerm(null);
-    setTermMeaning(null);
+  const fetchMeaning = (term) => {
+    // Fetch the meaning using the dictionary API
+    fetch(`https://dictionaryapi.com/api/v3/references/collegiate/json/${term}?key=07628e4b-78b1-4e82-bb45-0a235b724f20`)
+      .then((response) => response.json())
+      .then((data) => {
+        setMeaning(data[0].shortdef ? data[0].shortdef.join(', ') : 'Meaning not found');
+        setSelectedTerm(term);
+        setIsModalOpen(true); // Show modal on fetching the meaning
+      })
+      .catch((error) => {
+        console.error('Error fetching meaning:', error);
+        setMeaning('Error fetching meaning');
+        setIsModalOpen(true);
+      });
   };
 
   return (
-    <div className='p-4'>
-      <div className='text-xl p-3 bg-color1 text-white flex justify-center'>{alphabet}</div>
-      <div className='flex flex-col items-center'>
+    <div className="p-2 ">
+      <div className="text-xl p-3 bg-purple-500 text-white flex justify-center mb-4">{alphabet}</div>
+      <div className="flex flex-wrap justify-start">
         {musicTerms.map((term, index) => (
           <button
             key={index}
             onClick={() => fetchMeaning(term)}
-            className='text-lg p-2 m-1 text-white hover:bg-purple-700 rounded transition duration-300 ease-in-out'
+            className="text-lg m-2 p-2 bg-gray-700 text-white hover:bg-purple-700 rounded transition duration-300 ease-in-out"
           >
             {term}
           </button>
         ))}
       </div>
 
-      {/* Modal for showing the meaning */}
+      {/* Modal for showing the word meaning */}
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75">
-          <div className="bg-white p-6 rounded-lg w-96">
-            <h2 className="text-2xl font-bold mb-4">{selectedTerm}</h2>
-            <p>{termMeaning ? termMeaning.join(', ') : 'Loading...'}</p>
-            <button
-              className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-              onClick={closeModal}
-            >
-              Close
-            </button>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold text-purple-700">{selectedTerm}</h2>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="text-xl font-bold text-red-500 hover:text-red-700 transition duration-200"
+              >
+                &times;
+              </button>
+            </div>
+            <div className="mt-4">
+              <h3 className="text-xl font-semibold text-gray-800">Meaning</h3>
+              <p className="text-gray-700 mt-2">{meaning}</p>
+            </div>
           </div>
         </div>
       )}
