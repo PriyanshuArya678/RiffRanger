@@ -59,9 +59,7 @@ export default function NavBar() {
           <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full">
             <Link to={`store`}>STORE</Link>
           </li>
-          <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full">
-            <Link to={`explore`}>EXPLORE</Link>
-          </li>
+          
           {window.innerWidth < 970 && (
             <li>
               <button className='login-btn md:hidden bg-gradient-to-r w-40 from-primary to-secondary hover:from-secondary hover:to-primary text-white'>
@@ -71,9 +69,9 @@ export default function NavBar() {
           )}
         </ul>
       </div>
-      <div className='flex justify-center items-center gap-6 mt-2 mr-4'>
-        <button className="login-btn font-bold bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white transition-color transition-duration-500 ease-in-out">
-          {userStatus.userStatus.loggedIn ? <button onClick={handleLogout} className=''>LOGOUT</button> : <Link to="Login" className="link">LOG IN</Link>}
+      <div className='flex justify-center items-center gap-6 mt-2'>
+        <button className="p-4 rounded-2xl font-bold bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white transition-color transition-duration-500 ease-in-out">
+          {userStatus.userStatus.loggedIn ? <button onClick={handleLogout} className='flex justify-center items-center'>LOGOUT</button> : <Link to="Login" className="link">LOG IN</Link>}
         </button>
       </div>
       <div className='icons mt-2'>

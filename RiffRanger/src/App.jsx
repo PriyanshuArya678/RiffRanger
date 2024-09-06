@@ -5,7 +5,9 @@ import Motivation from "./MainPage/Motivation"
 import { Outlet } from 'react-router-dom';
 import {login,logout} from './Store/userStatusSlice'
 import {useDispatch,useSelector} from 'react-redux'
-import axios from 'axios'
+import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const dispatch =useDispatch()
   const userDetail=useSelector(state=>state.userStatus)
@@ -38,6 +40,7 @@ function App() {
       <NavBar/>
       <div className='flex-1'>
       <Outlet />
+      <ToastContainer />
       </div>
       {/* <Motivation/> */}
     </div>
