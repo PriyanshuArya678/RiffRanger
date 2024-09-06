@@ -10,17 +10,8 @@ export default function ChordClass() {
   const chordTypes = ['', '_m', '_7', '_m7', '_maj7', '_dim', '_aug', '_sus2', '_sus4'];
 
   async function getData(chordName) {
-<<<<<<< HEAD
-    console.log(chordName)
-    try {
-    const response = await axios.get(`https://api.uberchord.com/v1/chords/${chordName}`);
-    } catch (error) {
-      console.log(error)
-    }
-=======
     const response=details[chordName]
     // const response = await axios.get(`https://api.uberchord.com/v1/chords/${chordName}`);
->>>>>>> 507125081e78ec0670a7c9e98495ecda868b042a
     const f = [];
       try {
         const fretsData = response["strings"];
