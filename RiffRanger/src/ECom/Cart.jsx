@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeFromCart, increaseItemQuantity, decreaseItemQuantity } from '../Store/cartSlice';
+
 import Lottie from "lottie-react";
 import Ani from "../assets/MyAni7.json";
 
@@ -12,6 +13,8 @@ const Cart = () => {
 
   // Calculate total price
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
+  
 
   const handleRemoveFromCart = (item) => {
     dispatch(removeFromCart({ id: item.id }));

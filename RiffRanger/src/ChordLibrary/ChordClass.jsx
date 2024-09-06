@@ -10,7 +10,12 @@ export default function ChordClass() {
   const chordTypes = ['', '_m', '_7', '_m7', '_maj7', '_dim', '_aug', '_sus2', '_sus4'];
 
   async function getData(chordName) {
+    console.log(chordName)
+    try {
     const response = await axios.get(`https://api.uberchord.com/v1/chords/${chordName}`);
+    } catch (error) {
+      console.log(error)
+    }
     const f = [];
     if (response.status === 200) {
       try {
@@ -30,6 +35,7 @@ export default function ChordClass() {
           // Check if the chord already exists in chordList
           const chordExists = prevChords.some(chord => chord.name === chordName);
           // If chord doesn't exist, add it to the chordList
+         
           if (!chordExists) {
             return [...prevChords, { name: chordName, frets: f }];
           }
@@ -54,13 +60,16 @@ export default function ChordClass() {
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <div className='flex flex-row flex-wrap bg-white'>
+        <div className='flex flex-row flex-wrap '>
           {chordList.map((val, index) => (
             <div className=''> 
             <ChordDisplay key={index} chord={val} />
+
             </div>
+            
           ))}
         </div>
+        
       )}
     </div>
   );

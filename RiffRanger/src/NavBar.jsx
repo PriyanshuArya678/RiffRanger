@@ -39,7 +39,7 @@ export default function NavBar() {
       </div>
       <div className='navbar-items mt-2 mr-4'>
         <ul className={`text-2xl font-bold gap-6 flex justify-center items-center ${isClicked ? 'navbar-items active ' : 'navbar-items'}`}>
-          <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full">
+          <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full ">
             <Link to={`courses`}>COURSES</Link>
           </li>
           <li className="main-links relative pb-1 before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-0 before:h-0.5 before:bg-blue-600 before:transition-all before:duration-300 hover:before:w-full">
@@ -70,7 +70,7 @@ export default function NavBar() {
         </ul>
       </div>
       <div className='flex justify-center items-center gap-6 mt-2'>
-        <button className="p-4 rounded-2xl font-bold bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white transition-color transition-duration-500 ease-in-out">
+        <button className="p-4 hidden md:block rounded-2xl font-bold bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white transition-color transition-duration-500 ease-in-out">
           {userStatus.userStatus.loggedIn ? <button onClick={handleLogout} className='flex justify-center items-center'>LOGOUT</button> : <Link to="Login" className="link">LOG IN</Link>}
         </button>
       </div>

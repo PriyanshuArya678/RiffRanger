@@ -18,6 +18,7 @@ import img5 from './assets/M(img5).jpg'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../Store/cartSlice';
+import { addTowishlist } from '../Store/wishlistSlice';
 import { Link } from 'react-router-dom';
 
 const Landing = () => {
@@ -37,6 +38,9 @@ const Landing = () => {
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
+  };
+  const handleAddToWishlist= (item) => {
+    dispatch(addTowishlist(item));
   };
 
   const items = [
