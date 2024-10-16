@@ -1,2 +1,2 @@
 # RiffRanger
-An interactive guitar learning app .aayush
+An interactive guitar learning app .
